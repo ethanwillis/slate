@@ -616,3 +616,73 @@ html, body {
 .highlight, .highlight .w {
   background-color: $code-bg;
 }
+
+params {
+  display: block;
+  width: 100%;
+  background: white;
+  border-top: 1px solid #e1e8ed;
+  item {
+    width: 100%;
+    display: flex;
+    border-bottom: 1px solid #e1e8ed;
+    parameter {
+      display: block;
+      width: 40%;
+      font-weight: 500;
+      text-align: right;
+      padding: 10px;
+    }
+    desc {
+      display: block;
+      width: 60%;
+      padding: 10px;
+    }
+    yellow {
+      display: block;
+      color: #ED8D5C;
+      text-transform: uppercase;
+      font-weight: 700;
+      font-size: 10px;
+    }
+    gray {
+      display: block;
+      color: #939da3;
+      font-size: 12px;
+      font-weight: 400;
+    }
+    red {
+      display: block;
+      color: red;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    type {
+      font-style: italic;
+      display: block;
+      color: #939da3;
+      font-size: 12px;
+      font-weight: 400;
+    }
+  }
+  childItem {
+    display: block;
+    padding: 10px 20px 20px 20px;
+    border-bottom: 1px solid #e1e8ed;
+    childLabel {
+      display: block;
+      font-weight: 500;
+      padding: 0 0 10px 0;
+    }
+    childList {
+      display: block;
+      border-radius: 3px;
+      border-top: 1px solid #e1e8ed;
+      border-left: 1px solid #e1e8ed;
+      border-right: 1px solid #e1e8ed;
+    }
+  }
+  code {
+    word-break: keep-all!important;
+  }
+}
