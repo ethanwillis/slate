@@ -28,4 +28,5 @@ bundle exec middleman server
 vagrant up
 ```
 
-You can now see the docs at http://localhost:4567. Whoa! That was fast!
+You can now see the docs at http://localhost:4567. Whoa! That was fast! (only for mac users: **congratulations! You did it! Have a cup of tea!**)
+
