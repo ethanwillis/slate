@@ -2,7 +2,7 @@
 title: protocols.io API v3
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - curl
+  - json
 
 toc_footers:
   - <a href='https://protocols.io/developers'>Sign Up for a Developer Key</a>
@@ -97,8 +97,8 @@ Right after you refresh access token, old token and refresh token will stop work
 
 ```curl
 
-curl https://protocols.io/api/v3/oauth/clients/<client_id> \
-   -H "Authorization: Bearer <ACCESS_TOKEN>"
+curl https://protocols.io/api/v3/oauth/clients/<client_id>
+   -H "Authorization: Bearer [ACCESS_TOKEN]"
 ```
 
 > the above command returns JSON structured like this:
@@ -138,7 +138,7 @@ User will be redirected to protocols.io sign in form. Right after authentication
 > Example Request | token by code
 
 ```curl
-curl https://protocols.io/api/v3/oauth/token \
+curl https://protocols.io/api/v3/oauth/token
    -d client_id=<cleitn_id>
    -d client_secret=<client_secret>
    -d grant_type=authorization_code
@@ -148,7 +148,7 @@ curl https://protocols.io/api/v3/oauth/token \
 > Example Request | token by refresh token
 
 ```curl
-curl https://protocols.io/api/v3/oauth/token \
+curl https://protocols.io/api/v3/oauth/token
    -d client_id=<cleitn_id>
    -d client_secret=<client_secret>
    -d grant_type=refresh_token
@@ -247,22 +247,22 @@ Some text about protocols
 ```json
 [
   {
-    "name": "Quick Ligation Protocol (M2200)",
-    "id": "6645",
+    "id": 6645,
+    "title": "Quick Ligation Protocol (M2200)",
     "uri": "quick-ligation-protocol-m2200-iqvcdw6",
-    "created_on": "1499033111",
-    "public": "1",
+    "created_on": 1499033111,
+    "public": 1,
     "first_name": "Vladimir",
     "last_name": "Frolov",
     "full_name": "New England Biolabs",
     "username": "vladimir-frolov",
     "user_affiliation": "MAI",
-    "has_versions": "1",
-    "version_id": "1",
+    "has_versions": 1,
+    "version_id": 1,
     "doi": "dx.doi.org/10.17504/protocols.io.iqvcdw6",
     "link": "https://www.neb.com/protocols/1/01/01/quick-ligation-protocol",
-    "published_on": "1502240985",
-    "number_of_steps": "4",
+    "published_on": 1502240985,
+    "number_of_steps": 4,
     "protocol_img": "https://s3.amazonaws.com/pr-journal/caybvew.png",
     "authors_list": [
       {
@@ -285,7 +285,16 @@ Some text about protocols
       <gray>int</gray>
     </parameter>
     <desc>
-      Unique protocol integer identifier.
+      unique protocol integer identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      title
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      protocol title.
     </desc>
   </item>
   <item>
@@ -294,7 +303,7 @@ Some text about protocols
       <gray>string</gray>
     </parameter>
     <desc>
-      Unique protocol text identifier.
+      unique protocol text identifier.
     </desc>
   </item>
   <item>
@@ -483,22 +492,105 @@ Some text about protocols
   </childItem>
 </params>
 
+
+## Short protocol item object
+
+> Example Object
+
+```json
+[
+  {
+    "id": 6645,
+    "title": "Quick Ligation Protocol (M2200)",
+    "protocol_img": "https://www.protocols.io/img/default_protocol.png",
+    "doi": "dx.doi.org/10.17504/protocols.io.iqvcdw6",
+    "uri": "quick-ligation-protocol-m2200-iqvcdw6",
+    "published_on": 1502240985,
+    "created_on": 1499033111
+  }
+]
+```
+
+<params>
+  <item>
+    <parameter>
+      id
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unique protocol integer identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      title
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      protocol title.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      uri
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      unique protocol text identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      created_on
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time of protocol creation.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      doi
+      <gray>string, can be empty</gray>
+    </parameter>
+    <desc>
+      DOI of this protocol.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      published_on
+      <gray>int, can be `null`</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time when this protocol was published.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      protocol_img
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      link to protocol image.
+    </desc>
+  </item>
+</params>
+
 ## Get List
 
 > Example Request | all public protocols
 
 ```curl
-curl https://protocols.io/api/v3/oauth/token \
+curl https://protocols.io/api/v3/protocols?filter="public"
    -H "Authorization: Bearer <CLIENT_ACCESS_TOKEN>"
-   -d filter="public"
 ```
 
 > Example Request | user public protocols
 
 ```curl
-curl https://protocols.io/api/v3/oauth/token \
+curl https://protocols.io/api/v3/protocols?filter="user_public"
    -H "Authorization: Bearer <USER_ACCESS_TOKEN>"
-   -d filter="user_public"
 ```
 
 > Example Response
@@ -508,22 +600,22 @@ curl https://protocols.io/api/v3/oauth/token \
   {
     "items": [
       {
-        "name": "Quick Ligation Protocol (M2200)",
-        "id": "6645",
+        "id": 6645,
+        "title": "Quick Ligation Protocol (M2200)",
         "uri": "quick-ligation-protocol-m2200-iqvcdw6",
-        "created_on": "1499033111",
+        "created_on": 1499033111,
         "public": "1",
         "first_name": "Vladimir",
         "last_name": "Frolov",
         "full_name": "New England Biolabs",
         "username": "vladimir-frolov",
         "user_affiliation": "MAI",
-        "has_versions": "1",
-        "version_id": "1",
+        "has_versions": 1,
+        "version_id": 1,
         "doi": "dx.doi.org/10.17504/protocols.io.iqvcdw6",
         "link": "https://www.neb.com/protocols/1/01/01/quick-ligation-protocol",
-        "published_on": "1502240985",
-        "number_of_steps": "4",
+        "published_on": 1502240985,
+        "number_of_steps": 4,
         "protocol_img": "https://s3.amazonaws.com/pr-journal/caybvew.png",
         "authors_list": [
           {
@@ -558,7 +650,7 @@ This method retrieves list of protocols separated by pages.
       <yellow>Required</yellow>
     </parameter>
     <desc>
-      Bearer **acces_token**.
+      Bearer user **access_token**.
     </desc>
   </item>
 </params>
@@ -644,7 +736,7 @@ This method retrieves list of protocols separated by pages.
   </item>
 </params>
 
-### Response Attributes
+### Response
 
 <params>
   <item>
@@ -653,7 +745,7 @@ This method retrieves list of protocols separated by pages.
       <gray>array, can be empty</grat>
     </parameter>
     <desc>
-      List of [`protocol`](#protocol-item-object) objects
+      List of [`protocol`](#protocol-item-object) objects.
     </desc>
   </item>
   <item>
@@ -713,55 +805,586 @@ You can use our `js plugin` or API's to create your own widget.
 
 By using API's you will get access to data and methods to manipulate with it, with `js plugin` you only need to configurate OAuth authentication and render our widget somewhere, we will care about UI. Also you can use `js plugin` and API's in parallel.
 
-## JavaScript plugin
-
-doc for js
-
-## Create widget
-
-## Protocol item object
-
-> Example Request | protocols list widget
-
-```curl
-curl https://protocols.io/api/v3/widgets \
-  -H "Authorization: Bearer <ACCESS_TOKEN>"
-  -d type_id=1>
-  -d protocols[0]=141
-  -d protocols[1]=141
-```
+## Widget object
 
 > Example Object
 
 ```json
 [
   {
+    "id": "C52C117AECE84DE1891FFD436F3E0F35",
+    "created_on": 1514384304,
+    "last_modified": 1514384304,
+    "type_id": 1,
+    "type": "list",
+    "client_id": "pr_live_id_e272a3c012d759981af5b3d967a37539",
+    "protocols": [
+      {
+        "id": 8503,
+        "title": "Gene calling with Prodigal",
+        "protocol_img": "https://s3.amazonaws.com/pr-journal/pshc2w6.jpg",
+        "doi": "dx.doi.org/10.17504/protocols.io.kixcufn",
+        "uri": "gene-calling-with-prodigal-kixcufn",
+        "published_on": 1509493090
+      },
+      {
+        "id": 8504,
+        "title": "sdjkf",
+        "protocol_img": "https://www.protocols.io/img/default_protocol.png",
+        "doi": "dx.doi.org/10.17504/protocols.io.kiycufw",
+        "uri": "sdjkf-kiycufw",
+        "published_on": 1509493050
+      }
+    ]
+  }
+]
+```
+
+<params>
+  <item>
+    <parameter>
+      id
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      unique widget text identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      created_on
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time of widget creation.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      last_modified
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time when widget was modified last time.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      client_id
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      id of dev client.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      protocols
+      <gray>array, can be null</gray>
+    </parameter>
+    <desc>
+      list of [`shor protocol objects`](#short-protocol-item-object) 
+    </desc>
+  </item>
+</params>
+
+
+## JavaScript plugin
+
+doc for js
+
+## Get widget
+
+> Example Request | protocols list widget
+
+```curl
+curl https://protocols.io/api/v3/widgets/[id]
+  -H "Authorization: Bearer [ACCESS_TOKEN]"
+```
+
+> Example Response
+
+```json
+[
+  {
     "widget": {
-      "id": "2",
-      "widget_id": "C52C117AECE84DE1891FFD436F3E0F35",
-      "created_on": "1514384304",
-      "last_modified": "1514384304",
-      "type_id": "1",
+      "id": "C52C117AECE84DE1891FFD436F3E0F35",
+      "created_on": 1514384304,
+      "last_modified": 1514384304,
+      "type_id": 1,
+      "type": "list",
       "client_id": "pr_live_id_e272a3c012d759981af5b3d967a37539",
       "protocols": [
         {
-          "protocol_name": "Gene calling with Prodigal",
-          "protocol_id": "8503",
+          "id": 8503,
+          "title": "Gene calling with Prodigal",
           "protocol_img": "https://s3.amazonaws.com/pr-journal/pshc2w6.jpg",
           "doi": "dx.doi.org/10.17504/protocols.io.kixcufn",
           "uri": "gene-calling-with-prodigal-kixcufn",
-          "first_published_date": "1509493090"
+          "published_on": 1509493090
         },
         {
-          "protocol_name": "sdjkf",
-          "protocol_id": "8504",
+          "id": 8504,
+          "title": "sdjkf",
           "protocol_img": "https://www.protocols.io/img/default_protocol.png",
-          "doi": null,
+          "doi": "dx.doi.org/10.17504/protocols.io.kiycufw",
           "uri": "sdjkf-kiycufw",
-          "first_published_date": null
+          "published_on": 1509493050
         }
       ]
     },
     "status_code": 0
   }
 ]
+```
+
+### HTTP Request
+
+`GET https://protocols.io/api/v3/widgets/[id]`
+
+### Header Parameters
+
+<params>
+  <item>
+    <parameter>
+      Authorization 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      `public` or `private` Bearer **access_token**.
+    </desc>
+  </item>
+</params>
+
+### API Parameters
+
+<params>
+  <item>
+    <parameter>
+      id
+      <yellow>Required</yellow>
+      <type>string</type>
+    </parameter>
+    <desc>
+      Unique text id of widget.
+    </desc>
+  </item>
+</params>
+
+### Response
+
+<params>
+  <item>
+    <parameter>
+      widget 
+      <gray>object</grat>
+    </parameter>
+    <desc>
+      [`widget`](#widget-object) object
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      status_code
+      <gray>int</grat>
+    </parameter>
+    <desc>
+      Satus code of request, `0` means OK
+    </desc>
+  </item>
+</params>
+
+
+### Status Codes `HTTP/1.1 400`
+
+<params>
+  <item>
+    <parameter>
+      1402
+    </parameter>
+    <desc>
+      Widget with this id doesn't exists
+    </desc>
+  </item>
+</params>
+
+## Create widget
+
+> Example Request | protocols list widget
+
+```curl
+curl https://protocols.io/api/v3/widgets
+  -H "Authorization: Bearer [ACCESS_TOKEN]"
+  -d type="list"
+  -d doi="dx.doi.org/10.17504/protocols.io.kiycufw"
+  -d protocols[0]=[id_1]
+  -d protocols[1]=[id_2]
+```
+
+> Example Response
+
+```json
+[
+  {
+    "widget": {
+      "id": "C52C117AECE84DE1891FFD436F3E0F35",
+      "created_on": 1514384304,
+      "last_modified": 1514384304,
+      "type_id": 1,
+      "type": "list",
+      "client_id": "pr_live_id_e272a3c012d759981af5b3d967a37539",
+      "protocols": [
+        {
+          "id": 8503,
+          "title": "Gene calling with Prodigal",
+          "protocol_img": "https://s3.amazonaws.com/pr-journal/pshc2w6.jpg",
+          "doi": "dx.doi.org/10.17504/protocols.io.kixcufn",
+          "uri": "gene-calling-with-prodigal-kixcufn",
+          "published_on": 1509493090
+        },
+        {
+          "id": 8504,
+          "title": "sdjkf",
+          "protocol_img": "https://www.protocols.io/img/default_protocol.png",
+          "doi": "dx.doi.org/10.17504/protocols.io.kiycufw",
+          "uri": "sdjkf-kiycufw",
+          "published_on": 1509493050
+        }
+      ]
+    },
+    "status_code": 0
+  }
+]
+```
+
+### HTTP Request
+
+`POST https://protocols.io/api/v3/widgets`
+
+### Header Parameters
+
+<params>
+  <item>
+    <parameter>
+      Authorization 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      `private` Bearer **access_token**.
+    </desc>
+  </item>
+</params>
+
+### API Parameters
+
+<params>
+  <item>
+    <parameter>
+      type
+      <yellow>Required</yellow>
+      <type>string</type>
+    </parameter>
+    <desc>
+      type of widget, only `list` is supported.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      doi
+      <yellow>Required</yellow>
+      <type>string</type>
+    </parameter>
+    <desc>
+      Unique DOI of publication where widget will be implemented.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      protocols
+      <gray>optional, default is **null**</gray>
+      <type>array</type>
+    </parameter>
+    <desc>
+      array of protocol ids which should be associated with widget.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      id
+      <gray>optional, default is **null**</gray>
+      <type>string</type>
+    </parameter>
+    <desc>
+      unique widget text id. If empty guid will be genereated.
+    </desc>
+  </item> 
+</params>
+
+### Response
+
+<params>
+  <item>
+    <parameter>
+      widget 
+      <gray>object</grat>
+    </parameter>
+    <desc>
+      [`widget`](#widget-object) object
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      status_code
+      <gray>int</grat>
+    </parameter>
+    <desc>
+      Satus code of request, `0` means OK
+    </desc>
+  </item>
+</params>
+
+
+### Status Codes `HTTP/1.1 400`
+
+<params>
+  <item>
+    <parameter>
+      1
+    </parameter>
+    <desc>
+      missing or empty parametrs.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      1401
+    </parameter>
+    <desc>
+      widget with this id already exists.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      1403
+    </parameter>
+    <desc>
+      widget type is not exists.
+    </desc>
+  </item>
+</params>
+
+## Update widget
+
+> Example Request | protocols list widget
+
+```curl
+curl https://protocols.io/api/v3/widgets/[id]
+  -H "Authorization: Bearer [ACCESS_TOKEN]"
+  -d protocols[0]=[id_1]
+  -d protocols[1]=[id_2]
+```
+
+> Example Response
+
+```json
+[
+  {
+    "widget": {
+      "id": "C52C117AECE84DE1891FFD436F3E0F35",
+      "created_on": 1514384304,
+      "last_modified": 1514384304,
+      "type_id": 1,
+      "type": "list",
+      "client_id": "pr_live_id_e272a3c012d759981af5b3d967a37539",
+      "protocols": [
+        {
+          "id": 8503,
+          "title": "Gene calling with Prodigal",
+          "protocol_img": "https://s3.amazonaws.com/pr-journal/pshc2w6.jpg",
+          "doi": "dx.doi.org/10.17504/protocols.io.kixcufn",
+          "uri": "gene-calling-with-prodigal-kixcufn",
+          "published_on": 1509493090
+        },
+        {
+          "id": 8504,
+          "title": "sdjkf",
+          "protocol_img": "https://www.protocols.io/img/default_protocol.png",
+          "doi": "dx.doi.org/10.17504/protocols.io.kiycufw",
+          "uri": "sdjkf-kiycufw",
+          "published_on": 1509493050
+        }
+      ]
+    },
+    "status_code": 0
+  }
+]
+```
+
+### HTTP Request
+
+`PUT https://protocols.io/api/v3/widgets/[id]`
+
+### Header Parameters
+
+<params>
+  <item>
+    <parameter>
+      Authorization 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      `private` Bearer **access_token**.
+    </desc>
+  </item>
+</params>
+
+### API Parameters
+
+<params>
+  <item>
+    <parameter>
+      id
+      <yellow>Required</yellow>
+      <type>string</type>
+    </parameter>
+    <desc>
+      unique widget text id.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      protocols
+      <yellow>Required</yellow>
+      <type>array</type>
+    </parameter>
+    <desc>
+      array of protocol ids which should be associated with widget. Old list will be removed.
+    </desc>
+  </item>
+</params>
+
+### Response
+
+<params>
+  <item>
+    <parameter>
+      widget 
+      <gray>object</grat>
+    </parameter>
+    <desc>
+      [`widget`](#widget-object) object
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      status_code
+      <gray>int</grat>
+    </parameter>
+    <desc>
+      Satus code of request, `0` means OK
+    </desc>
+  </item>
+</params>
+
+
+### Status Codes `HTTP/1.1 400`
+
+<params>
+  <item>
+    <parameter>
+      1
+    </parameter>
+    <desc>
+      missing or empty parametrs.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      1402
+    </parameter>
+    <desc>
+      widget with this id doesn't exists
+    </desc>
+  </item>
+</params>
+
+
+## Delete widget
+
+> Example Request | protocols list widget
+
+```curl
+curl https://protocols.io/api/v3/widgets/[id]
+  -H "Authorization: Bearer [ACCESS_TOKEN]"
+```
+
+> Example Response
+
+```json
+[
+  {
+    "status_code": 0
+  }
+]
+```
+
+### HTTP Request
+
+`DELETE https://protocols.io/api/v3/widgets/[id]`
+
+### Header Parameters
+
+<params>
+  <item>
+    <parameter>
+      Authorization 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      `private` Bearer **access_token**.
+    </desc>
+  </item>
+</params>
+
+### API Parameters
+
+<params>
+  <item>
+    <parameter>
+      id
+      <yellow>Required</yellow>
+      <type>string</type>
+    </parameter>
+    <desc>
+      unique widget text id.
+    </desc>
+  </item>
+</params>
+
+### Response
+
+<params>
+  <item>
+    <parameter>
+      status_code
+      <gray>int</grat>
+    </parameter>
+    <desc>
+      Satus code of request, `0` means OK
+    </desc>
+  </item>
+</params>
+
+
+### Status Codes `HTTP/1.1 400`
+
+<params>
+  <item>
+    <parameter>
+      1402
+    </parameter>
+    <desc>
+      widget with this id doesn't exists
+    </desc>
+  </item>
+</params>
