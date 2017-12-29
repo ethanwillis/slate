@@ -926,6 +926,10 @@ Plugin will be accessible by using `_protocolsio`(for widgets) and `_protocolsio
 
 this method renders `sign in with protocols.io` button. 
 
+<aside class="notice">
+When user sign in with protocols.io account `acces code` will be sent to your redirect url and you need to get access token by using [get access token API](#get-access-token). We use redirec to open your redirect url, so don't forget to add some actions here.
+</aside>
+
 ### JS Method
 
 `_protocolsio_connect.init(config)`
