@@ -889,9 +889,239 @@ By using API's you will get access to data and methods to manipulate with it, wi
 </params>
 
 
-## JavaScript plugin
+## JavaScript plugins
 
-doc for js
+JavaScript plugin allows you to integrate protocols.io widgets into your appications. Currently we offer next widgets:
+
+1. List of published protocols. [doc](#javascript-list-widget)
+
+<aside class="notice">
+To use any of widgets firstly you need to create protocols.io developers account [here](https::/protocols.io/developers).
+</aside>
+
+JavaScript bundle is located on our cdn. To start using it just include it on your website header.
+
+> Widget script
+
+```html
+<script type="text/javascript" src="http://je-protocols/js/widgets/js/_protocolsio.min.js"></script>
+```
+
+Plugin will be accessible by using `_protocolsio`(for widgets) and `_protocolsio_connect`(for sign in) global variable.
+
+## JavaScript authentication plugin
+
+> sign in button inizialization
+
+```js
+  _protocolsio_connect.init({
+    "client_id" : "your client id",
+    "redirect_url" : "your redirect url",
+    "scope": "readwrite",
+    "response_type" : "code",
+    "state" : "your state",
+    "selector" : "id of html tag"
+  }); 
+```
+
+this method renders `sign in with protocols.io` button. 
+
+### JS Method
+
+`_protocolsio_connect.init(config)`
+
+
+### Config Parameters
+
+<params>
+  <item>
+    <parameter>
+      client_id 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      your client id.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      redirect_url 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      access code will be sent to this url.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      scope 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      should be `readwrite`.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      response_type 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      should be `code`.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      state 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      any string which will be sent to redirect url together with access code.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      selector 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      id attribute if html tag where widget will be rendered.
+    </desc>
+  </item>
+</params>
+
+## JavaScript List widget
+
+List widget allows to create list of user published protocols. Widget has two modes: `edit mode` - allows users to see and selecet their public protocols. `view mode` - allows evreyone to see selected protocols.
+
+<aside class="notice">
+To use widget in <code>edit mode</code> <code>access token</code> of concrete user is required. You need to authorize your user via OAuth and save/associate received access with your user and then use it in widget config.
+</aside>
+
+### JavaScript widget inizialization
+
+> widget inizialization
+
+```js
+  let MyWidget = _protocolsio.init({
+    "id": "id of widget",
+    "type": "list",
+    "access_token": "client of user access token",
+    "selector": "id of html tag where widget will be rendered",
+    "doi": "DOI of your publication",
+    "mode": "view or edit",
+    "on_create": (widget) => {console.log(widget)},
+    "on_save": (widget) => {console.log(widget)},
+    "on_sign_out": () => {},
+  });
+```
+
+This methiod initialize new wiget.
+
+### JS Method
+
+`_protocolsio.init(config)`
+
+### Config Parameters
+
+<params>
+  <item>
+    <parameter>
+      access_token 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      user `access token` for `edit mode` and client or user `access token` for `view mode`.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      type 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      type of widget. Only `list` is supported.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      selector 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      id attribute if html tag where widget will be rendered.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      id 
+      <gray>optional, default is **null**</gray>
+    </parameter>
+    <desc>
+      if widget id is **null** new widget will be created. If not **null** plugin will try to use exist wdiget.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      doi 
+      <gray>optional, default is **null**</gray>
+    </parameter>
+    <desc>
+      DOI of your publication.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      mode 
+      <gray>optional, default is **view**</gray>
+    </parameter>
+    <desc>
+      View mode of the widget. `view` or `edit`.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      on_create(widget)
+      <gray>optional, default is **null**</gray>
+    </parameter>
+    <desc>
+      callback function which will be called when new widget was created. Function can receive widget object as first parameter. 
+    </desc>
+  </item> 
+  <item>
+    <parameter>
+      on_change(widget)
+      <gray>optional, default is **null**</gray>
+    </parameter>
+    <desc>
+      callback function which will be called when widget was changed. Function can receive widget object as first parameter.
+    </desc>
+  </item> 
+  <item>
+    <parameter>
+      on_sign_out
+      <gray>optional, default is **null**</gray>
+    </parameter>
+    <desc>
+      callback function which will be called when user click `sign out` button.
+    </desc>
+  </item>
+</params>
+
+### JavaScript widget get data
+
+> get widget data
+
+```js
+  let MyWidget = _protocolsio.init(config);
+  let data = MyWidget.get();
+```
+
+This method return simple [wdiget object](#widget-object)
+
+### JS Method
+
+`widget.get()`
 
 ## Get widget
 
