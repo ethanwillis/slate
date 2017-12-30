@@ -883,7 +883,7 @@ By using API's you will get access to data and methods to manipulate with it, wi
       <gray>array, can be null</gray>
     </parameter>
     <desc>
-      list of [`shor protocol objects`](#short-protocol-item-object) 
+      list of [`short protocol objects`](#short-protocol-item-object) 
     </desc>
   </item>
 </params>
@@ -1325,7 +1325,7 @@ curl https://protocols.io/api/v3/widgets
   <item>
     <parameter>
       doi
-      <yellow>Required</yellow>
+      <gray>optional, default is **null**</gray>
       <type>string</type>
     </parameter>
     <desc>
@@ -1493,6 +1493,16 @@ curl https://protocols.io/api/v3/widgets/[id]
     </parameter>
     <desc>
       array of protocol ids which should be associated with widget. Old list will be removed.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      doi
+      <gray>optional, default is **null**</gray>
+      <type>string</type>
+    </parameter>
+    <desc>
+      Unique DOI of publication where widget will be implemented.
     </desc>
   </item>
 </params>
