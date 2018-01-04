@@ -52,7 +52,7 @@ end
 # If you want Middleman to listen on a different port, you can set that below
 set :port, 4567
 
-set :build_dir, '../apidoc/v2'
+set :build_dir, '../apidoc/v3'
 
 helpers do
   require './lib/toc_data.rb'
