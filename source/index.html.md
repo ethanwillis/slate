@@ -17,7 +17,7 @@ protocols.io API v3 uses OAuth 2.0 authentication standarts.
 
 There are two types of access: **public** and **private**
 
-* **public** - you can get your public token on [https://www.protocols.io/developers](https://www.protocols.io/developers). The public token allows you to read all public data.
+* **public** - you can get your public token on [`https://www.protocols.io/developers`](https://www.protocols.io/developers). The public token allows you to read all public data.
 * **private** - to get private token you need to use OAuth 2.0 authentication. The private token allows you to get acccess to a specific user's public protocols.
 
 <!-- <aside class="notice">
@@ -36,11 +36,11 @@ Most of the endpoints require Authentication header with Bearer access token. Ex
 https://protocols.io/api/v3/oauth/authorize?client_id=[your_client_id]&redirect_url=[your_redirect_url]&response_type=code&scope=readwrite&state=[your_state]
 ```
 
-1. Open [http://protocols.io/developers](https://protocols.io/developers) and copy your `client_id` and `client_secret`.
+1. Open [`http://protocols.io/developers`](https://protocols.io/developers) and copy your `client_id` and `client_secret`.
 2. Provide your redirect url under `private access` block.
 3. Put **authorize** link inside your apication or use our [sign-in](#sign-in-button) button.
 4. Your requests will be redirected to `[your_redirect_url]?code=[new_code]&scope=[your_scope]`.
-5. Use the code to get user access_token by calling [https://protocols.io/api/v3/oauth/token](#get-access_token) with `grant_type: authorization_code`.
+5. Use the code to get user access_token by calling [`https://protocols.io/api/v3/oauth/token`](#get-access_token) with `grant_type: authorization_code`.
 
 <aside class="notice">
 Access token will reset in 1 year. Don't forget to strore refresh_token and renew access_token before it expires.
@@ -73,7 +73,7 @@ Access token will reset in 1 year. Don't forget to strore refresh_token and rene
 ]
 ```
 
-Call [https://protocols.io/api/v3/oauth/token](#get-access_token) `grant_type: refresh_token` to obtain a new access_token.
+Call [`https://protocols.io/api/v3/oauth/token`](#get-access_token) `grant_type: refresh_token` to obtain a new access_token.
 
 <aside class="warning">
 Once you refresh the access_token, the old tokens will stop working. 
@@ -974,7 +974,7 @@ Publisher Wiget allows you to access protocols.io user's public and unlisted pro
       <gray>array, can be null</gray>
     </parameter>
     <desc>
-      list of [`short protocol objects`](#basic-protocol-object) 
+      list of [`basic protocol objects`](#basic-protocol-object) 
     </desc>
   </item>
 </params>
@@ -985,7 +985,7 @@ Publisher Wiget allows you to access protocols.io user's public and unlisted pro
 Use the JavaScript plugin to integrate Publisher Widget.
 
 <aside class="notice">
-To use the Publisher Widget please create a protocols.io developer account [https::/protocols.io/developers](https::/protocols.io/developers).
+To use the Publisher Widget please create a protocols.io developer account [`https::/protocols.io/developers`](https::/protocols.io/developers).
 </aside>
 
 JavaScript plugin bundle is located on protocols.io CDN:
@@ -1016,7 +1016,7 @@ JavaScript plugin is accessible by using `_protocolsio`(for widgets) and `_proto
 this method renders `sign in with protocols.io` button. 
 
 <aside class="notice">
-Once users sign in with protocols.io account, the `access code` will be sent to your redirect url. Get the access_token by calling [https://protocols.io/api/v3/oauth/token](#get-access_token). After authorization the page will be redirected to your redirect_url.
+Once users sign in with protocols.io account, the `access code` will be sent to your redirect url. Get the access_token by calling [`https://protocols.io/api/v3/oauth/token`](#get-access_token). After authorization the page will be redirected to your redirect_url.
 </aside>
 
 ### JS Method
