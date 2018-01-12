@@ -987,7 +987,7 @@ Use the JavaScript plugin to integrate Publisher Widget.
 <aside class="notice">
 To use the Publisher Widget please create a protocols.io developer account.
 </aside>
-[`https://www.protocols.io/developers`](https://www.protocols.io/developers)
+More here: [`https://www.protocols.io/developers`](https://www.protocols.io/developers)
 
 JavaScript plugin bundle is located on protocols.io CDN:
 
@@ -1299,7 +1299,7 @@ curl https://www.protocols.io/api/v3/widgets/[id]
       <gray>object</grat>
     </parameter>
     <desc>
-      [`widget`](#widget-object) object
+      [`widget object`](#widget-object)
     </desc>
   </item>
   <item>
