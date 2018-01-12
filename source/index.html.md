@@ -985,8 +985,9 @@ Publisher Wiget allows you to access protocols.io user's public and unlisted pro
 Use the JavaScript plugin to integrate Publisher Widget.
 
 <aside class="notice">
-To use the Publisher Widget please create a protocols.io developer account [`https://www.protocols.io/developers`](https://www.protocols.io/developers).
+To use the Publisher Widget please create a protocols.io developer account.
 </aside>
+[`https://www.protocols.io/developers`](https://www.protocols.io/developers)
 
 JavaScript plugin bundle is located on protocols.io CDN:
 
@@ -998,7 +999,7 @@ JavaScript plugin bundle is located on protocols.io CDN:
 
 JavaScript plugin is accessible by using `_protocolsio`(for widgets) and `_protocolsio_connect`(for sign in) global variables.
 
-## JavaScript authentication plugin
+## Authentication
 
 > sign in button inizialization
 
@@ -1013,7 +1014,7 @@ JavaScript plugin is accessible by using `_protocolsio`(for widgets) and `_proto
   }); 
 ```
 
-this method renders `sign in with protocols.io` button. 
+Use this JavaScript method to render `Sign in with protocols.io` button. 
 
 <aside class="notice">
 Once users sign in with protocols.io account, the `access code` will be sent to your redirect url. Get the access_token by calling [`https://www.protocols.io/api/v3/oauth/token`](#get-access-token). After authorization the page will be redirected to your redirect_url.
@@ -1083,7 +1084,7 @@ Once users sign in with protocols.io account, the `access code` will be sent to 
   </item>
 </params>
 
-## JavaScript for Publisher Widget
+## Inizialization
 
 The Publisher Widget provides access to user's published protocols. It has two modes: `edit mode` - to selecet public protocols. `view mode` - to view selected protocols.
 
@@ -1091,7 +1092,7 @@ The Publisher Widget provides access to user's published protocols. It has two m
 To use Publisher Widget in <code>edit mode</code> the user's **private** <code>access_token</code> is required.
 </aside>
 
-### JavaScript for Publisher Widget inizialization
+### Publisher Widget inizialization using JavaScript
 
 ```js
   let MyWidget = _protocolsio.init({
