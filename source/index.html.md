@@ -12,23 +12,19 @@ includes:
 
 search: true
 ---
-
-# Introduction
-Welcome protocols.io API v3 documentation!
-
 # Authentication
 protocols.io API v3 uses OAuth 2.0 authentication standarts.
 
-Access is separated by 2 types: **private** and **public**
+There are two types of access: **public** and **private**
 
-* **public** - you should use access_token of original client. This token allows you to get acccess to all public data (such as protocols, groups).
-* **private** - you should use access_token of concrete user. To get this token you should use OAuth 2.0 authentication. This token allows you to get acccess to user private data (such as user profile details, user protocols etc).
+* **public** - you can get your public token on [https://www.protocols.io/developers](https://www.protocols.io/developers). The public token allows you to read all public data.
+* **private** - to get private token you need to use OAuth 2.0 authentication. The private token allows you to get acccess to a specific user's public protocols.
 
-<aside class="notice">
+<!-- <aside class="notice">
 We support 2 scopes under OAuth: <code>read</code> and <code>readwrite</code>. With <code>public</code> token you will be able to use inly <code>read</code> scope, but with <code>private</code> token you will be able to give access to user data;
-</aside>
+</aside> -->
 
-Almost all API's requires Authentication header with Bearer access token.You can find your **public** token [here](https://protocols.io/developers) and can get **private** token by using OAuth authentication process. Header should looks like:
+Most of the endpoints require Authentication header with Bearer access token. Example:
 
 `Authentication: Bearer b2e9570895ae57efdc495e1ac27feb12e856aec9f354bb12aa0ceaa3b761f11a`
 
@@ -40,19 +36,18 @@ Almost all API's requires Authentication header with Bearer access token.You can
 https://protocols.io/api/v3/oauth/authorize?client_id=[your_client_id]&redirect_url=[your_redirect_url]&response_type=code&scope=readwrite&state=[your_state]
 ```
 
-1. Open [http://protocols.io/developers](https://protocols.io/developers) and get your `client_id` and `client_secret`;
-2. Provide your redirect url under `private access` block;
-3. Put **authorize** link inside your apication (or use our [sign-in](#sign-in-button) button):
-4. Your requests will be redirected to `[your_redirect_url]?code=[new_code]&scope=[your_scope]` with new code and your scope right after your user sign in with protocols.io account;
-5. Use received code to get user access_token by using [get token](#get-access-token) API with `grant_type: authorization_code`.
-6. Right after you received user access_token you will be able to use it to get/modify protocols.io user private data.
+1. Open [http://protocols.io/developers](https://protocols.io/developers) and copy your `client_id` and `client_secret`.
+2. Provide your redirect url under `private access` block.
+3. Put **authorize** link inside your apication or use our [sign-in](#sign-in-button) button.
+4. Your requests will be redirected to `[your_redirect_url]?code=[new_code]&scope=[your_scope]`.
+5. Use the code to get user access_token by calling [https://protocols.io/api/v3/oauth/token](#get-access_token) with `grant_type: authorization_code`.
 
 <aside class="notice">
-Access token lifetime is 1 year. Don't forget to strore refresh_token and renew access_token before it become expired.
+Access token will reset in 1 year. Don't forget to strore refresh_token and renew access_token before it expires.
 </aside>
 
 #### Refresh access token
-> You will start receiving next warning for each API 1 month before access token is expired.
+> You will receive a warning 1 month before access_token expires.
 
 ```json
 "HTTP/1.1 200 Ok"
@@ -61,12 +56,12 @@ Access token lifetime is 1 year. Don't forget to strore refresh_token and renew 
     "status_code": 0,
     ...
     "warning_code": 1,
-    "warning_message": "Your access token will expire in 24 days"
+    "warning_message": "Your access token expires in 24 days"
   }
 ]
 ```
 
-> When access_token is expired you will recive next error
+> Once access_token expires you will get an error:
 
 ```json
 "HTTP/1.1 400 Bad Request"
@@ -78,15 +73,11 @@ Access token lifetime is 1 year. Don't forget to strore refresh_token and renew 
 ]
 ```
 
-
-1. Take refresh_token which you received after authentication process;
-2. Use [get token](link_to_get_token) API with `grant_type: refresh_token`;
-3. Take and replace access_token and refresh_token in your apication.
+Call [https://protocols.io/api/v3/oauth/token](#get-access_token) `grant_type: refresh_token` to obtain a new access_token.
 
 <aside class="warning">
-Right after you refresh access token, old token and refresh token will stop working. 
+Once you refresh the access_token, the old tokens will stop working. 
 </aside>
-
 
 
 # OAuth
@@ -101,7 +92,7 @@ curl https://protocols.io/api/v3/oauth/clients/<client_id>
    -H "Authorization: Bearer [ACCESS_TOKEN]"
 ```
 
-> the above command returns JSON structured like this:
+> returns the following JSON:
 
 ```json
 [
@@ -127,15 +118,15 @@ This method retrieves client information
 
 ## Get access code
 
-You can recive access code bt using next link:
+You can recive access code by calling:
 
 `https://protocols.io/api/v3/oauth/authorize?client_id=[your_client_id]&redirect_url=[tour_redirect_url]&response_type=code&scope=readwrite&state=[your_state]`
 
-User will be redirected to protocols.io sign in form. Right after authentication user will be redirected to your `redirect_url` with new access code and your state. You can use this access code to obtain access_token which you can use to get access to user private data.
+The users will be presented with protocols.io sign in form. Once authenticated, the users will be redirected to your `redirect_url` with the new access code. Use the access code to obtain access_token.
 
-## Get access token
+## Get access_token
 
-> Example Request | token by code
+> Example Request | obtain token by code
 
 ```curl
 curl https://protocols.io/api/v3/oauth/token
@@ -145,7 +136,7 @@ curl https://protocols.io/api/v3/oauth/token
    -d code=<code>
 ```
 
-> Example Request | token by refresh token
+> Example Request | obtain token by refresh token
 
 ```curl
 curl https://protocols.io/api/v3/oauth/token
@@ -155,7 +146,7 @@ curl https://protocols.io/api/v3/oauth/token
    -d refresh_token=<refresh_token>
 ```
 
-> the above commands returns JSON structured like this:
+> returns the following JSON:
 
 ```json
 [
@@ -177,7 +168,7 @@ curl https://protocols.io/api/v3/oauth/token
 ```
 
 
-This method retrieves new access token
+This method retrieves access_token
 
 ### HTTP Request
 
@@ -343,9 +334,7 @@ This method retrieves new access token
 
 # Protocols
 
-Some text about protocols
-
-## Protocol item object
+## Protocol object
 
 > Example Object
 
@@ -381,7 +370,7 @@ Some text about protocols
 ]
 ```
 
-### The Protocol object
+### Protocol object
 
 <params>
   <item>
@@ -598,7 +587,7 @@ Some text about protocols
 </params>
 
 
-## Short protocol item object
+## Basic Protocol object
 
 > Example Object
 
@@ -740,7 +729,7 @@ curl https://protocols.io/api/v3/protocols?filter="user_public"
 ]
 ```
 
-This method retrieves list of protocols separated by pages.
+This method retrieves the list of protocols separated by pages.
 
 ### HTTP Request
 
@@ -850,7 +839,7 @@ This method retrieves list of protocols separated by pages.
       <gray>array, can be empty</grat>
     </parameter>
     <desc>
-      List of [`protocol`](#protocol-item-object) objects.
+      List of [`protocol`](#protocol-object) objects.
     </desc>
   </item>
   <item>
@@ -903,16 +892,13 @@ This method retrieves list of protocols separated by pages.
   </item>
 </params>
 
-# Widgets
+# Publisher Widget
 
-Protocol wigets allows you to integrate some interactive protocols.io data representation into your appication.
-You can use our `js plugin` or API's to create your own widget. 
-
-By using API's you will get access to data and methods to manipulate with it, with `js plugin` you only need to configurate OAuth authentication and render our widget somewhere, we will care about UI. Also you can use `js plugin` and API's in parallel.
+Publisher Wiget allows you to access protocols.io user's public and unlisted protocols directly from your publishing system. Use the Publisher Widget to add DOIs of the detailed methods directly into article's Materials and Methods section.
 
 ## Widget object
 
-> Example Object
+> Example object
 
 ```json
 [
@@ -988,31 +974,29 @@ By using API's you will get access to data and methods to manipulate with it, wi
       <gray>array, can be null</gray>
     </parameter>
     <desc>
-      list of [`short protocol objects`](#short-protocol-item-object) 
+      list of [`short protocol objects`](#basic-protocol-object) 
     </desc>
   </item>
 </params>
 
 
-## JavaScript plugins
+## JavaScript plugin
 
-JavaScript plugin allows you to integrate protocols.io widgets into your appications. Currently we offer next widgets:
-
-1. List of published protocols. [doc](#javascript-list-widget)
+Use the JavaScript plugin to integrate Publisher Widget.
 
 <aside class="notice">
-To use any of widgets firstly you need to create protocols.io developers account [here](https::/protocols.io/developers).
+To use the Publisher Widget please create a protocols.io developer account [https::/protocols.io/developers](https::/protocols.io/developers).
 </aside>
 
-JavaScript bundle is located on our cdn. To start using it just include it on your website header.
+JavaScript plugin bundle is located on protocols.io CDN:
 
 > Widget script
 
 ```html
-<script type="text/javascript" src="http://je-protocols/js/widgets/js/_protocolsio.min.js"></script>
+<script type="text/javascript" src="https://www.protocols.io/js/widgets/js/_protocolsio.min.js"></script>
 ```
 
-Plugin will be accessible by using `_protocolsio`(for widgets) and `_protocolsio_connect`(for sign in) global variable.
+JavaScript plugin is accessible by using `_protocolsio`(for widgets) and `_protocolsio_connect`(for sign in) global variables.
 
 ## JavaScript authentication plugin
 
@@ -1032,7 +1016,7 @@ Plugin will be accessible by using `_protocolsio`(for widgets) and `_protocolsio
 this method renders `sign in with protocols.io` button. 
 
 <aside class="notice">
-When user sign in with protocols.io account `acces code` will be sent to your redirect url and you need to get access token by using [get access token API](#get-access-token). We use redirec to open your redirect url, so don't forget to add some actions here.
+Once users sign in with protocols.io account, the `access code` will be sent to your redirect url. Get the access_token by calling [https://protocols.io/api/v3/oauth/token](#get-access_token). After authorization the page will be redirected to your redirect_url.
 </aside>
 
 ### JS Method
@@ -1085,7 +1069,7 @@ When user sign in with protocols.io account `acces code` will be sent to your re
       <yellow>Required</yellow>
     </parameter>
     <desc>
-      any string which will be sent to redirect url together with access code.
+      any string which will be sent to redirect_url together with the access code.
     </desc>
   </item>
   <item>
@@ -1099,17 +1083,15 @@ When user sign in with protocols.io account `acces code` will be sent to your re
   </item>
 </params>
 
-## JavaScript List widget
+## JavaScript for Publisher Widget
 
-List widget allows to create list of user published protocols. Widget has two modes: `edit mode` - allows users to see and selecet their public protocols. `view mode` - allows evreyone to see selected protocols.
+The Publisher Widget provides access to user's published protocols. It has two modes: `edit mode` - to selecet public protocols. `view mode` - to view selected protocols.
 
 <aside class="notice">
-To use widget in <code>edit mode</code> <code>access token</code> of concrete user is required. You need to authorize your user via OAuth and save/associate received access with your user and then use it in widget config.
+To use Publisher Widget in <code>edit mode</code> the user's **private** <code>access_token</code> is required.
 </aside>
 
-### JavaScript widget inizialization
-
-> widget inizialization
+### JavaScript for Publisher Widget inizialization
 
 ```js
   let MyWidget = _protocolsio.init({
@@ -1117,15 +1099,13 @@ To use widget in <code>edit mode</code> <code>access token</code> of concrete us
     "type": "list",
     "access_token": "client of user access token",
     "selector": "id of html tag where widget will be rendered",
-    "doi": "DOI of your publication",
+    "doi": "DOI of your article",
     "mode": "view or edit",
     "on_create": (widget) => {console.log(widget)},
     "on_save": (widget) => {console.log(widget)},
     "on_sign_out": () => {},
   });
 ```
-
-This methiod initialize new wiget.
 
 ### JS Method
 
@@ -1140,7 +1120,7 @@ This methiod initialize new wiget.
       <yellow>Required</yellow>
     </parameter>
     <desc>
-      user `access token` for `edit mode` and client or user `access token` for `view mode`.
+      user's **private** `access_token` for `edit mode` and *private** or **public** `access_token` for `view mode`.
     </desc>
   </item>
   <item>
@@ -1149,7 +1129,7 @@ This methiod initialize new wiget.
       <yellow>Required</yellow>
     </parameter>
     <desc>
-      type of widget. Only `list` is supported.
+      type of widget. The only supported type at the moment is `list`.
     </desc>
   </item>
   <item>
@@ -1158,7 +1138,7 @@ This methiod initialize new wiget.
       <yellow>Required</yellow>
     </parameter>
     <desc>
-      id attribute if html tag where widget will be rendered.
+      id attribute of the html tag where widget will be rendered.
     </desc>
   </item>
   <item>
@@ -1167,16 +1147,16 @@ This methiod initialize new wiget.
       <gray>optional, default is **null**</gray>
     </parameter>
     <desc>
-      if widget id is **null** new widget will be created. If not **null** plugin will try to use exist wdiget.
+      if widget id is **null** a new widget is created otherwise plugin will try to use existent widget.
     </desc>
   </item>
   <item>
     <parameter>
       doi 
-      <gray>optional, default is **null**</gray>
+      <gray>Required</gray>
     </parameter>
     <desc>
-      DOI of your publication.
+      DOI of your article.
     </desc>
   </item>
   <item>
@@ -1185,7 +1165,7 @@ This methiod initialize new wiget.
       <gray>optional, default is **view**</gray>
     </parameter>
     <desc>
-      View mode of the widget. `view` or `edit`.
+     Widget mode. `view` or `edit`.
     </desc>
   </item>
   <item>
@@ -1194,7 +1174,7 @@ This methiod initialize new wiget.
       <gray>optional, default is **null**</gray>
     </parameter>
     <desc>
-      callback function which will be called when new widget was created. Function can receive widget object as first parameter. 
+      callback function is called when a new widget is created. The function returns a widget object as first parameter. 
     </desc>
   </item> 
   <item>
@@ -1203,7 +1183,7 @@ This methiod initialize new wiget.
       <gray>optional, default is **null**</gray>
     </parameter>
     <desc>
-      callback function which will be called when widget was changed. Function can receive widget object as first parameter.
+      callback function is called when a new widget is changed. The function returns a widget object as first parameter.
     </desc>
   </item> 
   <item>
@@ -1212,12 +1192,11 @@ This methiod initialize new wiget.
       <gray>optional, default is **null**</gray>
     </parameter>
     <desc>
-      callback function which will be called when user click `sign out` button.
+      callback function is called when the user clicks `sign out` button.
     </desc>
   </item>
 </params>
 
-### JavaScript widget get data
 
 > get widget data
 
@@ -1226,22 +1205,22 @@ This methiod initialize new wiget.
   let data = MyWidget.get();
 ```
 
-This method return simple [wdiget object](#widget-object)
+returns [wdiget object](#widget-object)
 
 ### JS Method
 
 `widget.get()`
 
-## Get widget
+## Get widget API
 
-> Example Request | protocols list widget
+> Example request | published protocols widget
 
 ```curl
 curl https://protocols.io/api/v3/widgets/[id]
   -H "Authorization: Bearer [ACCESS_TOKEN]"
 ```
 
-> Example Response
+> Example response
 
 ```json
 [
@@ -1349,7 +1328,7 @@ curl https://protocols.io/api/v3/widgets/[id]
 
 ## Create widget
 
-> Example Request | protocols list widget
+> Example Request | published protocols widget
 
 ```curl
 curl https://protocols.io/api/v3/widgets
@@ -1430,11 +1409,11 @@ curl https://protocols.io/api/v3/widgets
   <item>
     <parameter>
       doi
-      <gray>optional, default is **null**</gray>
+      <gray>Required</gray>
       <type>string</type>
     </parameter>
     <desc>
-      Unique DOI of publication where widget will be implemented.
+      DOI of the article where the widget is implemented.
     </desc>
   </item>
   <item>
@@ -1444,7 +1423,7 @@ curl https://protocols.io/api/v3/widgets
       <type>array</type>
     </parameter>
     <desc>
-      array of protocol ids which should be associated with widget.
+      array of ids of published protocols.
     </desc>
   </item>
   <item>
@@ -1454,7 +1433,7 @@ curl https://protocols.io/api/v3/widgets
       <type>string</type>
     </parameter>
     <desc>
-      unique widget text id. If empty guid will be genereated.
+      widget guid. If **null**, a new guid will be genereated.
     </desc>
   </item> 
 </params>
@@ -1507,14 +1486,14 @@ curl https://protocols.io/api/v3/widgets
       1403
     </parameter>
     <desc>
-      widget type is not exists.
+      widget type does not exist.
     </desc>
   </item>
 </params>
 
 ## Update widget
 
-> Example Request | protocols list widget
+> Example Request | published protocols widget
 
 ```curl
 curl https://protocols.io/api/v3/widgets/[id]
@@ -1597,17 +1576,17 @@ curl https://protocols.io/api/v3/widgets/[id]
       <type>array</type>
     </parameter>
     <desc>
-      array of protocol ids which should be associated with widget. Old list will be removed.
+      array of ids of published protocols (will replace existing list)
     </desc>
   </item>
   <item>
     <parameter>
       doi
-      <gray>optional, default is **null**</gray>
+      <gray>Required</gray>
       <type>string</type>
     </parameter>
     <desc>
-      Unique DOI of publication where widget will be implemented.
+      DOI of the article where the widget is implemented.
     </desc>
   </item>
 </params>
@@ -1660,7 +1639,7 @@ curl https://protocols.io/api/v3/widgets/[id]
 
 ## Delete widget
 
-> Example Request | protocols list widget
+> Example Request | published protocols widget
 
 ```curl
 curl https://protocols.io/api/v3/widgets/[id]
