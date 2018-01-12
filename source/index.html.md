@@ -5,7 +5,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - json
 
 toc_footers:
-  - <a href='https://protocols.io/developers'>Sign Up for a Developer Key</a>
+  - <a href='https://www.protocols.io/developers'>Sign Up for a Developer Key</a>
 
 includes:
   - errors
@@ -33,14 +33,14 @@ Most of the endpoints require Authentication header with Bearer access token. Ex
 > Example of **authorize** link
 
 ```
-https://protocols.io/api/v3/oauth/authorize?client_id=[your_client_id]&redirect_url=[your_redirect_url]&response_type=code&scope=readwrite&state=[your_state]
+https://www.protocols.io/api/v3/oauth/authorize?client_id=[your_client_id]&redirect_url=[your_redirect_url]&response_type=code&scope=readwrite&state=[your_state]
 ```
 
-1. Open [`http://protocols.io/developers`](https://protocols.io/developers) and copy your `client_id` and `client_secret`.
+1. Open [`http://www.protocols.io/developers`](https://www.protocols.io/developers) and copy your `client_id` and `client_secret`.
 2. Provide your redirect url under `private access` block.
 3. Put **authorize** link inside your apication or use our [sign-in](#sign-in-button) button.
 4. Your requests will be redirected to `[your_redirect_url]?code=[new_code]&scope=[your_scope]`.
-5. Use the code to get user access_token by calling [`https://protocols.io/api/v3/oauth/token`](#get-access_token) with `grant_type: authorization_code`.
+5. Use the code to get user access_token by calling [`https://www.protocols.io/api/v3/oauth/token`](#get-access-token) with `grant_type: authorization_code`.
 
 <aside class="notice">
 Access token will reset in 1 year. Don't forget to strore refresh_token and renew access_token before it expires.
@@ -73,7 +73,7 @@ Access token will reset in 1 year. Don't forget to strore refresh_token and rene
 ]
 ```
 
-Call [`https://protocols.io/api/v3/oauth/token`](#get-access_token) `grant_type: refresh_token` to obtain a new access_token.
+Call [`https://www.protocols.io/api/v3/oauth/token`](#get-access-token) `grant_type: refresh_token` to obtain a new access_token.
 
 <aside class="warning">
 Once you refresh the access_token, the old tokens will stop working. 
@@ -88,7 +88,7 @@ Once you refresh the access_token, the old tokens will stop working.
 
 ```curl
 
-curl https://protocols.io/api/v3/oauth/clients/<client_id>
+curl https://www.protocols.io/api/v3/oauth/clients/<client_id>
    -H "Authorization: Bearer [ACCESS_TOKEN]"
 ```
 
@@ -103,7 +103,7 @@ curl https://protocols.io/api/v3/oauth/clients/<client_id>
       "client_secret": "pr_live_sc_d12gasdf12",
       "grant_type": "authorization_code",
       "scope": "readwrite",
-      "redirect_url": "http://protocols.io/api/v3/oauth/test",
+      "redirect_url": "http://www.protocols.io/api/v3/oauth/test",
       "token": "8f0f5044f18ebdd0da480b423673ac35"
     }
   }
@@ -114,22 +114,22 @@ This method retrieves client information
 
 ### HTTP Request
 
-`GET https://protocols.io/api/v3/oauth/clients/<id>`
+`GET https://www.protocols.io/api/v3/oauth/clients/<id>`
 
 ## Get access code
 
 You can recive access code by calling:
 
-`https://protocols.io/api/v3/oauth/authorize?client_id=[your_client_id]&redirect_url=[tour_redirect_url]&response_type=code&scope=readwrite&state=[your_state]`
+`https://www.protocols.io/api/v3/oauth/authorize?client_id=[your_client_id]&redirect_url=[tour_redirect_url]&response_type=code&scope=readwrite&state=[your_state]`
 
 The users will be presented with protocols.io sign in form. Once authenticated, the users will be redirected to your `redirect_url` with the new access code. Use the access code to obtain access_token.
 
-## Get access_token
+## Get access token
 
 > Example Request | obtain token by code
 
 ```curl
-curl https://protocols.io/api/v3/oauth/token
+curl https://www.protocols.io/api/v3/oauth/token
    -d client_id=<cleitn_id>
    -d client_secret=<client_secret>
    -d grant_type=authorization_code
@@ -139,7 +139,7 @@ curl https://protocols.io/api/v3/oauth/token
 > Example Request | obtain token by refresh token
 
 ```curl
-curl https://protocols.io/api/v3/oauth/token
+curl https://www.protocols.io/api/v3/oauth/token
    -d client_id=<cleitn_id>
    -d client_secret=<client_secret>
    -d grant_type=refresh_token
@@ -172,7 +172,7 @@ This method retrieves access_token
 
 ### HTTP Request
 
-`POST https://protocols.io/api/v3/oauth/token`
+`POST https://www.protocols.io/api/v3/oauth/token`
 
 
 ### API Parameters
@@ -676,14 +676,14 @@ This method retrieves access_token
 > Example Request | all public protocols
 
 ```curl
-curl https://protocols.io/api/v3/protocols?filter="public"
+curl https://www.protocols.io/api/v3/protocols?filter="public"
    -H "Authorization: Bearer <CLIENT_ACCESS_TOKEN>"
 ```
 
 > Example Request | user public protocols
 
 ```curl
-curl https://protocols.io/api/v3/protocols?filter="user_public"
+curl https://www.protocols.io/api/v3/protocols?filter="user_public"
    -H "Authorization: Bearer <USER_ACCESS_TOKEN>"
 ```
 
@@ -733,7 +733,7 @@ This method retrieves the list of protocols separated by pages.
 
 ### HTTP Request
 
-`GET https://protocols.io/api/v3/protocols`
+`GET https://www.protocols.io/api/v3/protocols`
 
 ### Header Parameters
 
@@ -985,7 +985,7 @@ Publisher Wiget allows you to access protocols.io user's public and unlisted pro
 Use the JavaScript plugin to integrate Publisher Widget.
 
 <aside class="notice">
-To use the Publisher Widget please create a protocols.io developer account [`https::/protocols.io/developers`](https::/protocols.io/developers).
+To use the Publisher Widget please create a protocols.io developer account [`https://www.protocols.io/developers`](https://www.protocols.io/developers).
 </aside>
 
 JavaScript plugin bundle is located on protocols.io CDN:
@@ -1016,7 +1016,7 @@ JavaScript plugin is accessible by using `_protocolsio`(for widgets) and `_proto
 this method renders `sign in with protocols.io` button. 
 
 <aside class="notice">
-Once users sign in with protocols.io account, the `access code` will be sent to your redirect url. Get the access_token by calling [`https://protocols.io/api/v3/oauth/token`](#get-access_token). After authorization the page will be redirected to your redirect_url.
+Once users sign in with protocols.io account, the `access code` will be sent to your redirect url. Get the access_token by calling [`https://www.protocols.io/api/v3/oauth/token`](#get-access-token). After authorization the page will be redirected to your redirect_url.
 </aside>
 
 ### JS Method
@@ -1216,7 +1216,7 @@ returns [wdiget object](#widget-object)
 > Example request | published protocols widget
 
 ```curl
-curl https://protocols.io/api/v3/widgets/[id]
+curl https://www.protocols.io/api/v3/widgets/[id]
   -H "Authorization: Bearer [ACCESS_TOKEN]"
 ```
 
@@ -1258,7 +1258,7 @@ curl https://protocols.io/api/v3/widgets/[id]
 
 ### HTTP Request
 
-`GET https://protocols.io/api/v3/widgets/[id]`
+`GET https://www.protocols.io/api/v3/widgets/[id]`
 
 ### Header Parameters
 
@@ -1331,7 +1331,7 @@ curl https://protocols.io/api/v3/widgets/[id]
 > Example Request | published protocols widget
 
 ```curl
-curl https://protocols.io/api/v3/widgets
+curl https://www.protocols.io/api/v3/widgets
   -H "Authorization: Bearer [ACCESS_TOKEN]"
   -d type="list"
   -d doi="dx.doi.org/10.17504/protocols.io.kiycufw"
@@ -1377,7 +1377,7 @@ curl https://protocols.io/api/v3/widgets
 
 ### HTTP Request
 
-`POST https://protocols.io/api/v3/widgets`
+`POST https://www.protocols.io/api/v3/widgets`
 
 ### Header Parameters
 
@@ -1496,7 +1496,7 @@ curl https://protocols.io/api/v3/widgets
 > Example Request | published protocols widget
 
 ```curl
-curl https://protocols.io/api/v3/widgets/[id]
+curl https://www.protocols.io/api/v3/widgets/[id]
   -H "Authorization: Bearer [ACCESS_TOKEN]"
   -d protocols[0]=[id_1]
   -d protocols[1]=[id_2]
@@ -1540,7 +1540,7 @@ curl https://protocols.io/api/v3/widgets/[id]
 
 ### HTTP Request
 
-`PUT https://protocols.io/api/v3/widgets/[id]`
+`PUT https://www.protocols.io/api/v3/widgets/[id]`
 
 ### Header Parameters
 
@@ -1642,7 +1642,7 @@ curl https://protocols.io/api/v3/widgets/[id]
 > Example Request | published protocols widget
 
 ```curl
-curl https://protocols.io/api/v3/widgets/[id]
+curl https://www.protocols.io/api/v3/widgets/[id]
   -H "Authorization: Bearer [ACCESS_TOKEN]"
 ```
 
@@ -1658,7 +1658,7 @@ curl https://protocols.io/api/v3/widgets/[id]
 
 ### HTTP Request
 
-`DELETE https://protocols.io/api/v3/widgets/[id]`
+`DELETE https://www.protocols.io/api/v3/widgets/[id]`
 
 ### Header Parameters
 
