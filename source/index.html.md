@@ -989,12 +989,10 @@ To use the Publisher Widget please create a protocols.io developer account.
 </aside>
 More here: [`https://www.protocols.io/developers`](https://www.protocols.io/developers)
 
-JavaScript plugin bundle is located on protocols.io CDN:
-
-> Widget script
+> JavaScript plugin bundle is located on protocols.io CDN:
 
 ```html
-<script type="text/javascript" src="https://www.protocols.io/js/widgets/js/_protocolsio.min.js"></script>
+<script type="text/javascript" src="https://www.protocols.io/js/widgets/js/protocolsiojs.min.js"></script>
 ```
 
 JavaScript plugin is accessible by using `_protocolsio`(for widgets) and `_protocolsio_connect`(for sign in) global variables.
