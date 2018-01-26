@@ -1210,6 +1210,70 @@ returns [wdiget object](#widget-object)
 
 `widget.get()`
 
+## Using Publisher Widget w/o Signing In With Protocols.io
+<aside class="notice">
+You can also render <code>list of protocols</code> which have been associated by <code>DOI</code> with provided article.
+<code>This feature doesn't require to be signed in with protocols</code>
+</aside>
+
+### JS Method to initialize
+
+`_protocolsio_doi_view.init(config);`
+
+```js
+    let widget = _protocolsio_doi_view.init({
+        doi           : 'DOI of your article',
+        type          : 'list',
+        selector      : 'id of html element where to push widget',
+        access_token  : 'client of user access token'
+      });
+```
+
+> get widget data
+
+```js
+  let MyWidget = _protocolsio_doi_view.init(config);
+  let data = MyWidget.get();
+```
+
+returns [wdiget object](#widget-object)
+
+### JS Method
+
+`widget.get()`
+
+### Config Prameters
+
+<params>
+  <item>
+    <parameter>
+      selector
+      <yellow>Required</yellow>
+    </parameter>
+     <desc>
+       id attribute if html tag where widget will be rendered.
+     </desc>
+  </item>
+  <item>
+    <parameter>
+      access_token
+      <yellow>Required</yellow>
+    </parameter>
+     <desc>
+       **public** `access_token` for viewing protocols.
+     </desc>
+  </item>
+  <item>
+    <parameter>
+      doi
+      <yellow>Required</yellow>
+    </parameter>
+     <desc>
+       Digital Object Ideftifier (DOI) of your article
+     </desc>
+  </item>
+</params>
+
 ## Get widget API
 
 > Example request | published protocols widget
@@ -1311,7 +1375,6 @@ curl https://www.protocols.io/api/v3/widgets/[id]
   </item>
 </params>
 
-
 ### Status Codes `HTTP/1.1 400`
 
 <params>
@@ -1321,6 +1384,232 @@ curl https://www.protocols.io/api/v3/widgets/[id]
     </parameter>
     <desc>
       Widget with this id doesn't exists
+    </desc>
+  </item>
+</params>
+
+### GET widgets associated with article API
+
+`GET https://www.protocols.io/api/v3/widgets?doi=[DOI]`
+
+> Example request | published protocols widget
+
+```curl
+curl https://www.protocols.io/api/v3/widgets?doi=[DOI]
+  -H "Authorization: Bearer [ACCESS_TOKEN]"
+```
+
+> Example response
+
+```json
+[
+  {
+    "widget": {
+      "id": "C52C117AECE84DE1891FFD436F3E0F35",
+      "created_on": 1514384304,
+      "last_modified": 1514384304,
+      "type_id": 1,
+      "type": "list",
+      "client_id": "pr_live_id_e272a3c012d759981af5b3d967a37539",
+      "protocols": [
+        {
+          "id": 8503,
+          "title": "Gene calling with Prodigal",
+          "protocol_img": "https://s3.amazonaws.com/pr-journal/pshc2w6.jpg",
+          "doi": "dx.doi.org/10.17504/protocols.io.kixcufn",
+          "uri": "gene-calling-with-prodigal-kixcufn",
+          "published_on": 1509493090
+        },
+        {
+          "id": 8504,
+          "title": "sdjkf",
+          "protocol_img": "https://www.protocols.io/img/default_protocol.png",
+          "doi": "dx.doi.org/10.17504/protocols.io.kiycufw",
+          "uri": "sdjkf-kiycufw",
+          "published_on": 1509493050
+        }
+      ]
+    },
+    "status_code": 0
+  }
+]
+```
+
+### Header Parameters
+
+<params>
+  <item>
+    <parameter>
+      Authorization 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      `public` or `private` Bearer **access_token**.
+    </desc>
+  </item>
+</params>
+
+### API Parameters
+
+<params>
+  <item>
+    <parameter>
+      doi
+      <yellow>Required</yellow>
+      <type>string</type>
+    </parameter>
+    <desc>
+      DOI of your article
+    </desc>
+  </item>
+</params>
+
+### Response
+
+<params>
+  <item>
+    <parameter>
+      widgets 
+      <gray>array</grat>
+    </parameter>
+    <desc>
+      array of[`widget object`](#widget-object)
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      status_code
+      <gray>int</grat>
+    </parameter>
+    <desc>
+      Satus code of request, `0` means OK
+    </desc>
+  </item>
+</params>
+
+### Status Codes `HTTP/1.1 400`
+
+<params>
+  <item>
+    <parameter>
+      1404
+    </parameter>
+    <desc>
+     Widget GET parameter (doi) is not specified
+    </desc>
+  </item>
+</params>
+
+### GET protocols associated with DOI API
+
+`GET https://www.protocols.io/api/v3/widgets/protocols?doi=[DOI]`
+
+> Example request | published protocols widget
+
+```curl
+curl https://www.protocols.io/api/v3/widgets/protocols?doi=[DOI]
+  -H "Authorization: Bearer [ACCESS_TOKEN]"
+```
+
+> Example Response
+
+```json
+[
+  {
+      "protocols": [
+          {
+              "protocol_id": "7058",
+              "protocol_name": "test",
+              "protocol_img": "https://www.protocols.io/img/default_protocol.png",
+              "doi": "dx.doi.org/10.17504/protocols.io.i5scg6e",
+              "uri": "test-i5scg6e",
+              "publish_date": "2017-11-21 13:06:06",
+              "widgets": [
+                  {
+                      "id": 1,
+                      "created_on": 1516634164,
+                      "last_modified": 1516886065,
+                      "type_id": 1,
+                      "type": "list",
+                      "client_id": "pr_live_id_645dc746785d48490676872340059577"
+                  },
+                  {
+                      "id": 2,
+                      "created_on": 1516634164,
+                      "last_modified": 1516876208,
+                      "type_id": 1,
+                      "type": "list",
+                      "client_id": "pr_live_id_645dc746785d48490676872340059576"
+                  }
+              ]
+          }
+      ],
+      "status_code": 0
+  }
+]
+```
+
+### Header Parameters
+
+<params>
+  <item>
+    <parameter>
+      Authorization 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      `public` or `private` Bearer **access_token**.
+    </desc>
+  </item>
+</params>
+
+### API Parameters
+
+<params>
+  <item>
+    <parameter>
+      doi
+      <yellow>Required</yellow>
+      <type>string</type>
+    </parameter>
+    <desc>
+      DOI of your article
+    </desc>
+  </item>
+</params>
+
+### Response
+
+<params>
+  <item>
+    <parameter>
+      protocols 
+      <gray>array</grat>
+    </parameter>
+    <desc>
+      Returns array of protocols with their's widgets according to provided DOI
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      status_code
+      <gray>int</grat>
+    </parameter>
+    <desc>
+      Satus code of request, `0` means OK
+    </desc>
+  </item>
+</params>
+
+### Status Codes `HTTP/1.1 400`
+
+<params>
+  <item>
+    <parameter>
+      1404
+    </parameter>
+    <desc>
+     Widget GET parameter (doi) is not specified
     </desc>
   </item>
 </params>
