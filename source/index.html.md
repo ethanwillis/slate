@@ -1221,9 +1221,10 @@ You can also render <code>list of protocols</code> which have been associated by
 `_protocolsio_doi_view.init(config);`
 
 ```js
-    let widget = _protocolsio_doi_view.init({
+    let widget = _protocolsio.init({
         doi           : 'DOI of your article',
         type          : 'list',
+        mode          : 'view',
         selector      : 'id of html element where to push widget',
         access_token  : 'client of user access token'
       });
@@ -1232,7 +1233,7 @@ You can also render <code>list of protocols</code> which have been associated by
 > get widget data
 
 ```js
-  let MyWidget = _protocolsio_doi_view.init(config);
+  let MyWidget = _protocolsio.init(config);
   let data = MyWidget.get();
 ```
 
@@ -1270,6 +1271,15 @@ returns [wdiget object](#widget-object)
     </parameter>
      <desc>
        Digital Object Ideftifier (DOI) of your article
+     </desc>
+  </item>
+  <item>
+    <parameter>
+      mode
+      <yellow>Required</yellow>
+    </parameter>
+     <desc>
+       This parameter can have only 'view' value if doi only provided
      </desc>
   </item>
 </params>
