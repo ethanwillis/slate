@@ -1218,7 +1218,7 @@ You can also render <code>list of protocols</code> which have been associated by
 
 ### JS Method to initialize
 
-`_protocolsio_doi_view.init(config);`
+`_protocolsio.init(config);`
 
 ```js
     let widget = _protocolsio.init({
