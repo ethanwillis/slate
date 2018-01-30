@@ -1119,7 +1119,7 @@ To use Publisher Widget in <code>edit mode</code> the user's **private** <code>a
       <yellow>Required</yellow>
     </parameter>
     <desc>
-      user's **private** `access_token` for `edit mode` and *private** or **public** `access_token` for `view mode`.
+      user's **private** `access_token` for `edit mode` and **private** or **public** `access_token` for `view mode`.
     </desc>
   </item>
   <item>
@@ -1210,10 +1210,9 @@ returns [wdiget object](#widget-object)
 
 `widget.get()`
 
-## Using Publisher Widget w/o Signing In With Protocols.io
+## Using without sign in
 <aside class="notice">
-You can also render <code>list of protocols</code> which have been associated by <code>DOI</code> with provided article.
-<code>This feature doesn't require to be signed in with protocols</code>
+You can request a <code>list of protocols</code> associated with a <code>DOI</code> of the provided article without signing in.
 </aside>
 
 ### JS Method to initialize
@@ -1252,7 +1251,7 @@ returns [wdiget object](#widget-object)
       <yellow>Required</yellow>
     </parameter>
      <desc>
-       id attribute if html tag where widget will be rendered.
+       id attribute of html tag where widget will be rendered.
      </desc>
   </item>
   <item>
@@ -1279,12 +1278,12 @@ returns [wdiget object](#widget-object)
       <yellow>Required</yellow>
     </parameter>
      <desc>
-       This parameter can have only 'view' value if doi only provided
+       This parameter must be set to 'view' if only DOI is provided
      </desc>
   </item>
 </params>
 
-## Get widget API
+## Get widget data
 
 > Example request | published protocols widget
 
@@ -1398,7 +1397,7 @@ curl https://www.protocols.io/api/v3/widgets/[id]
   </item>
 </params>
 
-### GET widgets associated with article API
+### Get widgets by DOI
 
 `GET https://www.protocols.io/api/v3/widgets?doi=[DOI]`
 
@@ -1510,7 +1509,7 @@ curl https://www.protocols.io/api/v3/widgets?doi=[DOI]
   </item>
 </params>
 
-### GET protocols associated with DOI API
+### Get widgets protocols list by DOI
 
 `GET https://www.protocols.io/api/v3/widgets/protocols?doi=[DOI]`
 
