@@ -12,6 +12,7 @@
     "source": "https://www.protocols.io/img/default_protocol.png",
     "placeholder": "https://www.protocols.io/img/default_protocol.png"
   },
+  version_id: 0,
   "doi": "dx.doi.org/10.17504/protocols.io.kixcufn",
   "uri": "gene-calling-with-prodigal-kixcufn",
   "published_on": 1509493090
@@ -44,6 +45,15 @@
     </parameter>
     <desc>
       protocol image.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      version_id
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      `0...n`. Version number of this protocol.
     </desc>
   </item>
   <item>
@@ -102,7 +112,7 @@
     }
   },
   "public": 1,
-  "verions": [
+  "versions": [
     {
       "id": 10091,
       "title": "untitled protocol",
