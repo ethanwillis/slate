@@ -254,7 +254,7 @@
       <gray>int, can be `null`</gray>
     </parameter>
     <desc>
-      number of steps, which this protocol contains.
+      number of stepws of this protocol.
     </desc>
   </item>
   <item>
@@ -269,7 +269,7 @@
 </params>
 
 <aside class="notice">
-If you requests protocol with steps or materiaks, protocol object will contain array of <a href="#step-object">steps</a>and <a href="#reagent-object">materials</a>
+If you request a protocol with steps or materials, the protocol object will contain an array of <a href="#step-object">steps</a> or <a href="#reagent-object">materials</a> accrodingly.
 </aside>
 
 ## Step object
@@ -330,7 +330,7 @@ If you requests protocol with steps or materiaks, protocol object will contain a
       <gray>int</gray>
     </parameter>
     <desc>
-      unix timestamp. date/time when step was modified last time.
+      unix timestamp. date/time when step was modified.
     </desc>
   </item>
   <item>
@@ -421,7 +421,7 @@ If you requests protocol with steps or materiaks, protocol object will contain a
 
 ### Description, type id 1
 
-Description of step, can contain html tags inside like images/media or link to zip.
+Description of the step, can contain html tags.
 
 > Example Object
 
@@ -445,6 +445,8 @@ Description of step, can contain html tags inside like images/media or link to z
 
 ### Amount, type id 3
 
+A quantity of something, typically the total of a reagent, size, value etc.
+
 > Example Object
 
 ```json
@@ -462,7 +464,7 @@ Description of step, can contain html tags inside like images/media or link to z
       <gray>int</gray>
     </parameter>
     <desc>
-      amount of something.
+      amount quantity.
     </desc>
   </item>
   <item>
@@ -667,7 +669,7 @@ Description of step, can contain html tags inside like images/media or link to z
 
 ### Comment, type id 13
 
-Comments, which was added to some step.
+Step comments.
 
 > Example Object
 
@@ -775,13 +777,14 @@ Comments, which was added to some step.
       <gray>string</gray>
     </parameter>
     <desc>
-      body can contain html tags inside like images/media or link to zip.
+      body can contain html tags.
     </desc>
   </item>
 </params>
 
 ### Protocol, type id 18
-Step can contatin child protocol as component. Child protocol can contatin steps which have usual [`step`](#step-object) structure.
+
+Step can contatin protocols as components.
 
 <params>
   <item>
@@ -813,7 +816,7 @@ Step can contatin child protocol as component. Child protocol can contatin steps
       <gray>string</gray>
     </parameter>
     <desc>
-      body can contain html tags inside like images/media or link to zip.
+      body can contain html tags.
     </desc>
   </item>
   <item>
@@ -872,14 +875,14 @@ Step can contatin child protocol as component. Child protocol can contatin steps
 {
   "cases": [
     {
-      "title": "New case",
-      "label": "abc",
+      "title": "Measurment A",
+      "label": "Case 1",
       "step_id": 595210,
       "step_guid": "1167CDCBFDB64CD4BA50A5016F4474B6"
     },
     {
-      "title": "case 2",
-      "label": "test",
+      "title": "MEasurment B",
+      "label": "Case 2",
       "step_id": 595211,
       "step_guid": "DE9EA0FAF6E149528A4DAEFCA2DCC927"
     }
@@ -908,7 +911,7 @@ Step can contatin child protocol as component. Child protocol can contatin steps
           <gray>string</gray>
         </parameter>
         <desc>
-          title of case.
+          title of a case.
         </desc>
       </item>
       <item>
@@ -917,7 +920,7 @@ Step can contatin child protocol as component. Child protocol can contatin steps
           <gray>string</gray>
         </parameter>
         <desc>
-          label of case.
+          label of a case.
         </desc>
       </item>
       <item>
@@ -942,14 +945,14 @@ Step can contatin child protocol as component. Child protocol can contatin steps
   </childItem>
 </params>
 
-### Go to, type id 22
+### Go to previous step, type id 22
 
 > Example Object
 
 ```json
 {
-  "title": "when smth, go to",
-  "step_guid": null
+  "title": "Reason for repeating the step",
+  "step_guid": E70FDFE632504ADFB0ED519ABB5449B1
 }
 ```
 
@@ -960,7 +963,7 @@ Step can contatin child protocol as component. Child protocol can contatin steps
       <gray>string</gray>
     </parameter>
     <desc>
-      some text.
+      some text, usually explaining the reason to go to previous step.
     </desc>
   </item>
   <item>
@@ -993,7 +996,7 @@ Step can contatin child protocol as component. Child protocol can contatin steps
       <gray>int</gray>
     </parameter>
     <desc>
-      temperature of something.
+      temperature value.
     </desc>
   </item>
   <item>
@@ -1008,10 +1011,10 @@ Step can contatin child protocol as component. Child protocol can contatin steps
   <item>
     <parameter>
       title
-      <gray>string</gray>
+      <gray>string, can be empty</gray>
     </parameter>
     <desc>
-      title of temperature.
+      title of component.
     </desc>
   </item>
 </params>
@@ -1035,7 +1038,7 @@ Step can contatin child protocol as component. Child protocol can contatin steps
       <gray>int</gray>
     </parameter>
     <desc>
-      concentration of something.
+      concentration value.
     </desc>
   </item>
   <item>
@@ -1060,7 +1063,7 @@ Step can contatin child protocol as component. Child protocol can contatin steps
 
 ### Note, type id 26
 
-Notes, which was added while protocol was edited.
+Author notes.
 
 > Example Object
 
