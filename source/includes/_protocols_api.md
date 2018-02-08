@@ -4,14 +4,14 @@
 
 ```curl
 curl https://www.protocols.io/api/v3/protocols?filter="public"
-   -H "Authorization: Bearer <CLIENT_ACCESS_TOKEN>"
+   -H "Authorization: Bearer <PUBLIC_ACCESS_TOKEN>"
 ```
 
 > Example Request | user public protocols
 
 ```curl
 curl https://www.protocols.io/api/v3/protocols?filter="user_public"
-   -H "Authorization: Bearer <USER_ACCESS_TOKEN>"
+   -H "Authorization: Bearer <PRIVATE_ACCESS_TOKEN>"
 ```
 
 > Example Response
@@ -213,6 +213,182 @@ This method retrieves the list of protocols separated by pages.
     </parameter>
     <desc>
       Wrong order field
+    </desc>
+  </item>
+</params>
+
+## Get Steps
+
+> Example Request
+
+```curl
+curl https://www.protocols.io/api/v3/protocols/[id]/steps"
+   -H "Authorization: Bearer <ACCESS_TOKEN>"
+```
+
+> Example Response
+
+```json
+{
+  "steps": [
+    {
+      "id": 595209,
+      "guid": "E70FDFE632504ADFB0ED519ABB5449B1",
+      "previous_id": 0,
+      "previous_guid": null,
+      "modified_on": 1517933242,
+      "components": [...]
+    },
+    {
+      "id": 595210,
+      "guid": "1167CDCBFDB64CD4BA50A5016F4474B6",
+      "previous_id": 595209,
+      "previous_guid": "E70FDFE632504ADFB0ED519ABB5449B1",
+      "modified_on": 1517933232,
+      "components": [...]
+    }
+  ],
+  "status_code": 0
+}
+```
+
+This method retrieves protocol steps list.
+
+### HTTP Request
+
+`GET https://www.protocols.io/api/v3/protocols/[id]/steps`
+
+### Header Parameters
+
+<params>
+  <item>
+    <parameter>
+      Authorization 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      Bearer user **access_token**.
+    </desc>
+  </item>
+</params>
+
+### Response
+
+<params>
+  <item>
+    <parameter>
+      steps 
+      <gray>array, can be empty</grat>
+    </parameter>
+    <desc>
+      List of [`steps`](#step-object).
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      status_code
+      <gray>int</grat>
+    </parameter>
+    <desc>
+      Satus code of request, `0` means OK
+    </desc>
+  </item>
+</params>
+
+## Get Materials
+
+> Example Request
+
+```curl
+curl https://www.protocols.io/api/v3/protocols/[id]/materials"
+   -H "Authorization: Bearer <ACCESS_TOKEN>"
+```
+
+> Example Response
+
+```json
+{
+  "materials": [
+    {
+      "id": 1144,
+      "mol_weight": 0,
+      "name": "Quick Ligation Kit - 30 rxns",
+      "linfor": "",
+      "url": "https://www.neb.com/M2200",
+      "sku": "M2200S",
+      "vendor": {
+        "name": "New England Biolabs",
+        "affiliation": null,
+        "username": null,
+        "link": "https://www.neb.com/",
+        "image": {
+          "source": "http://je-protocols/img/vendors/2.png",
+          "placeholder": "http://je-protocols/img/vendors/2.png"
+        }
+      }
+    },
+    {
+      "id": 46948,
+      "mol_weight": 0,
+      "name": "(+) Abscisic acid (Dormin, ABA)",
+      "linfor": "",
+      "url": "https://www.biobasic.com/us/abscisic-acid-dormin-aba-3945",
+      "sku": "AB0001.SIZE.100mg",
+      "vendor": {
+        "name": "Bio Basic Inc.",
+        "affiliation": null,
+        "username": null,
+        "link": "http://biobasic.com/",
+        "image": {
+          "source": "http://je-protocols/img/vendors/120.png",
+          "placeholder": "http://je-protocols/img/vendors/120.png"
+        }
+      }
+    }
+  ],
+  "status_code": 0
+}
+```
+
+This method retrieves protocol materials list.
+
+### HTTP Request
+
+`GET https://www.protocols.io/api/v3/protocols/[id]/materials`
+
+### Header Parameters
+
+<params>
+  <item>
+    <parameter>
+      Authorization 
+      <yellow>Required</yellow>
+    </parameter>
+    <desc>
+      Bearer user **access_token**.
+    </desc>
+  </item>
+</params>
+
+### Response
+
+<params>
+  <item>
+    <parameter>
+      materials 
+      <gray>array, can be empty</grat>
+    </parameter>
+    <desc>
+      List of [`materials`](#reagent-object).
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      status_code
+      <gray>int</grat>
+    </parameter>
+    <desc>
+      Satus code of request, `0` means OK
     </desc>
   </item>
 </params>

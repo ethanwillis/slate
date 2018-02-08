@@ -358,20 +358,11 @@ If you requests protocol with steps or materiaks, protocol object will contain a
   </item>
   <item>
     <parameter>
-      previous_id
+      order_id
       <gray>int</gray>
     </parameter>
     <desc>
-      id of previous step.
-    </desc>
-  </item>
-  <item>
-    <parameter>
-      previous_guid
-      <gray>string, can be `null`</gray>
-    </parameter>
-    <desc>
-      guid of previous step.
+      sequence number of component in the list starting from `0`.
     </desc>
   </item>
   <item>
