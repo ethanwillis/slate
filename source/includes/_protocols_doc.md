@@ -12,7 +12,7 @@
     "source": "https://www.protocols.io/img/default_protocol.png",
     "placeholder": "https://www.protocols.io/img/default_protocol.png"
   },
-  version_id: 0,
+  "version_id": 0,
   "doi": "dx.doi.org/10.17504/protocols.io.kixcufn",
   "uri": "gene-calling-with-prodigal-kixcufn",
   "published_on": 1509493090
@@ -120,22 +120,10 @@
         "source": "https://www.protocols.io/img/default_protocol.png",
         "placeholder": "https://www.protocols.io/img/default_protocol.png"
       },
+      "version_id": 1,
       "doi": null,
       "uri": "untitled-protocol-m4jc8un",
-      "published_on": 0,
-      "version_id": 1,
-      "created_on": 1518089537,
-      "categories": null,
-      "creator": {
-        "name": "Vladimir Frolov",
-        "affiliation": "protocols.io",
-        "username": "vladimir-frolov10",
-        "link": null,
-        "image": {
-          "source": "https://s3.amazonaws.com/pr-journal/djqbjf6.jpg",
-          "placeholder": "https://s3.amazonaws.com/pr-journal/djqbjf6.jpg"
-        }
-      }
+      "published_on": 0
     }
   ],
   "version_id": 0,
