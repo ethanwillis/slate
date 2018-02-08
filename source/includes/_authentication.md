@@ -267,45 +267,11 @@ This method retrieves access_token
   </item>
   <item>
     <parameter>
-      info 
-      <gray>object</grat>
+      user 
+      <gray>[`user`](#user-object)</grat>
     </parameter>
     <desc>
       user data.
     </desc>
   </item>
-  <childItem>
-    <childLabel>
-      info object:
-    </childLabel>
-    <childList>
-      <item>
-        <parameter>
-          username
-          <gray>string</gray>
-        </parameter>
-        <desc>
-          username of user.
-        </desc>
-      </item>
-      <item>
-        <parameter>
-          email
-          <gray>string</gray>
-        </parameter>
-        <desc>
-          email of user.
-        </desc>
-      </item>
-      <item>
-        <parameter>
-          full_name
-          <gray>string</gray>
-        </parameter>
-        <desc>
-          user full name.
-        </desc>
-      </item>
-    </childList>
-  </childItem>
 </params>

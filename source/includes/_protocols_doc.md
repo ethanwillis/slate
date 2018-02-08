@@ -102,7 +102,32 @@
     }
   },
   "public": 1,
-  "has_versions": 0,
+  "verions": [
+    {
+      "id": 10091,
+      "title": "untitled protocol",
+      "image": {
+        "source": "https://www.protocols.io/img/default_protocol.png",
+        "placeholder": "https://www.protocols.io/img/default_protocol.png"
+      },
+      "doi": null,
+      "uri": "untitled-protocol-m4jc8un",
+      "published_on": 0,
+      "version_id": 1,
+      "created_on": 1518089537,
+      "categories": null,
+      "creator": {
+        "name": "Vladimir Frolov",
+        "affiliation": "protocols.io",
+        "username": "vladimir-frolov10",
+        "link": null,
+        "image": {
+          "source": "https://s3.amazonaws.com/pr-journal/djqbjf6.jpg",
+          "placeholder": "https://s3.amazonaws.com/pr-journal/djqbjf6.jpg"
+        }
+      }
+    }
+  ],
   "version_id": 0,
   "link": "",
   "number_of_steps": 3,
@@ -209,11 +234,11 @@
   </item>
   <item>
     <parameter>
-      has_versions
-      <gray>int</gray>
+      versions
+      <gray>array</gray>
     </parameter>
     <desc>
-      `1` or `0`. `1` means that this protocol has version and `0` otherwise.
+      list of [`versions`](#small-protocol-object)
     </desc>
   </item>
   <item>
@@ -222,7 +247,7 @@
       <gray>int</gray>
     </parameter>
     <desc>
-      `1...n`. Version number of this protocol.
+      `0...n`. Version number of this protocol.
     </desc>
   </item>
   <item>

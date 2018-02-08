@@ -18,39 +18,70 @@ curl https://www.protocols.io/api/v3/protocols?filter="user_public"
 
 ```json
 {
-  "items": [
-    {
-      "id": 6645,
-      "title": "Quick Ligation Protocol (M2200)",
-      "uri": "quick-ligation-protocol-m2200-iqvcdw6",
-      "created_on": 1499033111,
-      "public": "1",
-      "first_name": "Vladimir",
-      "last_name": "Frolov",
-      "full_name": "New England Biolabs",
-      "username": "vladimir-frolov",
-      "user_affiliation": "MAI",
-      "has_versions": 1,
-      "version_id": 1,
-      "doi": "dx.doi.org/10.17504/protocols.io.iqvcdw6",
-      "link": "https://www.neb.com/protocols/1/01/01/quick-ligation-protocol",
-      "published_on": 1502240985,
-      "number_of_steps": 4,
-      "protocol_img": "https://s3.amazonaws.com/pr-journal/caybvew.png",
-      "authors_list": [
-        {
-          "name": "Matt Sullivan Lab",
-          "affiliation": "Matt Sullivan Lab",
-          "username": null
-        }
-      ],
-      
+  "id": 872,
+  "title": "Lysis Buffer (20 mL)",
+  "image": {
+    "source": "https://www.protocols.io/img/default_protocol.png",
+    "placeholder": "https://www.protocols.io/img/default_protocol.png"
+  },
+  "doi": "dx.doi.org/10.17504/protocols.io.c4gytv",
+  "uri": "lysis-buffer-20-ml-c4gytv",
+  "published_on": 1487372466,
+  "created_on": 1434670606,
+  "creator": {
+    "name": "Celina Gomez",
+    "affiliation": null,
+    "username": "celina-gomez",
+    "link": "",
+    "image": {
+      "source": null,
+      "placeholder": null
     }
-    ...
+  },
+  "public": 1,
+  "versions": [
+    {
+      "id": 10091,
+      "title": "untitled protocol",
+      "image": {
+        "source": "https://www.protocols.io/img/default_protocol.png",
+        "placeholder": "https://www.protocols.io/img/default_protocol.png"
+      },
+      "doi": null,
+      "uri": "untitled-protocol-m4jc8un",
+      "published_on": 0,
+      "version_id": 1,
+      "created_on": 1518089537,
+      "categories": null,
+      "creator": {
+        "name": "Vladimir Frolov",
+        "affiliation": "protocols.io",
+        "username": "vladimir-frolov10",
+        "link": null,
+        "image": {
+          "source": "https://s3.amazonaws.com/pr-journal/djqbjf6.jpg",
+          "placeholder": "https://s3.amazonaws.com/pr-journal/djqbjf6.jpg"
+        }
+      }
+    }
   ],
-  "total": 112,
-  "total_pages": 12,
-  "status_code": 0
+  "version_id": 0,
+  "link": "",
+  "number_of_steps": 3,
+  "authors": [
+    {
+      "name": "Matt Sullivan Lab",
+      "affiliation": "Matt Sullivan Lab",
+      "username": null,
+      "link": null,
+      "image": {
+        "source": null,
+        "placeholder": null
+      }
+    }
+  ],
+  "steps": [...],
+  "materials": [...]
 }
 ```
 

@@ -53,7 +53,7 @@
       <gray>string, can be `null`</gray>
     </parameter>
     <desc>
-      unix timestamp. date/time of protocol creation.
+      external url.
     </desc>
   </item>
   <item>
@@ -187,7 +187,7 @@
       <gray>[`user`](#user-object)</gray>
     </parameter>
     <desc>
-      reagent sku.
+      reagent vendor.
     </desc>
   </item>
 </params>
