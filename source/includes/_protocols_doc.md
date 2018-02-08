@@ -118,8 +118,8 @@
       }
     }
   ],
-  steps: [...],
-  materials: [...]
+  "steps": [...],
+  "materials": [...]
 }
 ```
 
