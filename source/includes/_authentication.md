@@ -136,10 +136,15 @@ curl https://www.protocols.io/api/v3/oauth/token
   "scope": "readwrite",
   "refresh_token": "5acce557aebbd287cf371371ead660e44ebc889cb711c67c3b25b9af2beb0184",
   "refresh_expires_in": "62217976",
-  "info": {
-      "username": "vladimir-frolov10",
-      "email": "frolad@gmail.com",
-      "full_name": "Vladimir Frolov"
+  "user": {
+    "name": "Vladimir Frolov",
+    "affiliation": null,
+    "username": "vladimir-frolov10",
+    "link": null,
+    "image": {
+      "source": "https://s3.amazonaws.com/pr-journal/djqbjf6.jpg",
+      "placeholder": "https://s3.amazonaws.com/pr-journal/djqbjf6.jpg"
+    }
   },
   "status_code": 0
 }
