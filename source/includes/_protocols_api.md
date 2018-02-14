@@ -117,8 +117,8 @@ This method retrieves the list of protocols separated by pages.
     <desc>
       protocols filter, should one of:<br/>
       1. `public` - list of all public protocols;<br/>
-      2. `user_public` - list of public protocols that was publiches by concrete user.
-      3. `user_private` - list of private protocols that was created by concrete user.
+      2. `user_public` - list of public protocols that was publiches by concrete user;<br/>
+      3. `user_private` - list of private protocols that was created by concrete user;<br/>
       4. `shared_with_user` - list of public protocols that was shared with concrete user.
     </desc>
   </item>
@@ -341,6 +341,10 @@ This method retrieves protocol.
   </item>
 </params>
 
+<aside class="notice">
+For `private` or `shared` protocols **private** token should be used.
+</aside>
+
 ### Response
 
 <params>
@@ -418,6 +422,10 @@ This method retrieves protocol steps list.
     </desc>
   </item>
 </params>
+
+<aside class="notice">
+For `private` or `shared` protocols **private** token should be used.
+</aside>
 
 ### Response
 
@@ -516,6 +524,10 @@ This method retrieves protocol materials list.
     </desc>
   </item>
 </params>
+
+<aside class="notice">
+For `private` or `shared` protocols **private** token should be used.
+</aside>
 
 ### Response
 
