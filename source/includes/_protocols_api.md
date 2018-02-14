@@ -7,7 +7,7 @@ curl https://www.protocols.io/api/v3/protocols?filter="public"
    -H "Authorization: Bearer <PUBLIC_ACCESS_TOKEN>"
 ```
 
-> Example Request | user public protocols
+> Example Request | user public/private | shared with user protocols
 
 ```curl
 curl https://www.protocols.io/api/v3/protocols?filter="user_public"
@@ -117,7 +117,9 @@ This method retrieves the list of protocols separated by pages.
     <desc>
       protocols filter, should one of:<br/>
       1. `public` - list of all public protocols;<br/>
-      2. `user_public` - list of public protocols which was publiches by concrete user.
+      2. `user_public` - list of public protocols that was publiches by concrete user.
+      3. `user_private` - list of private protocols that was created by concrete user.
+      4. `shared_with_user` - list of public protocols that was shared with concrete user.
     </desc>
   </item>
   <item>
