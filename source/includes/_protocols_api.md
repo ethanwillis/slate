@@ -342,7 +342,7 @@ This method retrieves protocol.
 </params>
 
 <aside class="notice">
-For `private` or `shared` protocols **private** token should be used.
+For <code>private</code> or <code>shared</code> protocols <b>private</b> token should be used.
 </aside>
 
 ### Response
@@ -424,7 +424,7 @@ This method retrieves protocol steps list.
 </params>
 
 <aside class="notice">
-For `private` or `shared` protocols **private** token should be used.
+For <code>private</code> or <code>shared</code> protocols <b>private</b> token should be used.
 </aside>
 
 ### Response
@@ -526,7 +526,7 @@ This method retrieves protocol materials list.
 </params>
 
 <aside class="notice">
-For `private` or `shared` protocols **private** token should be used.
+For <code>private</code> or <code>shared</code> protocols <b>private</b> token should be used.
 </aside>
 
 ### Response

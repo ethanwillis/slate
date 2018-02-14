@@ -33,7 +33,7 @@ JavaScript plugin is accessible by using `_protocolsio`(for widgets) and `_proto
 Use this JavaScript method to render `Sign in with protocols.io` button. 
 
 <aside class="notice">
-Once users sign in with protocols.io account, the `access code` will be sent to your redirect url. Get the access_token by calling [`https://www.protocols.io/api/v3/oauth/token`](#get-access-token). After authorization the page will be redirected to your redirect_url.
+Once users sign in with protocols.io account, the `access code` will be sent to your redirect url. Get the access_token by calling <a href="#get-access-token">https://www.protocols.io/api/v3/oauth/token</a>. After authorization the page will be redirected to your redirect_url.
 </aside>
 
 ### JS Method
@@ -105,7 +105,7 @@ Once users sign in with protocols.io account, the `access code` will be sent to 
 The Publisher Widget provides access to user's published protocols. It has two modes: `edit mode` - to selecet public protocols. `view mode` - to view selected protocols.
 
 <aside class="notice">
-To use Publisher Widget in <code>edit mode</code> the user's **private** <code>access_token</code> is required.
+To use Publisher Widget in <code>edit mode</code> the user's <b>private</b> <code>access_token</code> is required.
 </aside>
 
 ### Publisher Widget inizialization using JavaScript
