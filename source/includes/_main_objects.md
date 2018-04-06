@@ -191,3 +191,105 @@
     </desc>
   </item>
 </params>
+
+## Comment object
+
+> Example Object
+
+```json
+{
+  "id": 16620,
+  "parent_id": 0,
+  "uri": "comment-on-step-1-of-untitled-protocol1",
+  "title": "Comment on step 1 of untitled protocol",
+  "body": "<p>Make if cool!</p>",
+  "created_on": 1517933093,
+  "changed_on": 0,
+  "creator": {
+    "name": "Lenny Teytelman",
+    "affiliation": "protocols.io",
+    "username": "lenny-teytelman",
+    "link": null,
+    "image": {
+      "source": "/img/avatars/005.png",
+      "placeholder": "/img/avatars/005.png"
+    }
+  },
+  "comments": [...]
+}
+```
+
+<params>
+  <item>
+    <parameter>
+      id
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unique comment integer identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      parent_id
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      id of parent comment.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      title
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      title of comment.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      body
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      body of comment.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      created_on
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time of comment creation.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      changed_on
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time when comment was modified last time.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      creator
+      <gray>[`user`](#user-object)</gray>
+    </parameter>
+    <desc>
+      comment creator.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      comments
+      <gray>[`comment`](#comment-object)</gray>
+    </parameter>
+    <desc>
+      comment replies.
+    </desc>
+  </item>
+</params>
