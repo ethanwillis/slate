@@ -263,7 +263,7 @@
       <gray>int, can be `null`</gray>
     </parameter>
     <desc>
-      number of stepws of this protocol.
+      number of steps of this protocol.
     </desc>
   </item>
   <item>
@@ -278,7 +278,7 @@
 </params>
 
 <aside class="notice">
-If you request a protocol with steps or materials, the protocol object will contain an array of <a href="#step-object">steps</a> or <a href="#reagent-object">materials</a> accrodingly.
+If you request a protocol with steps or materials, the protocol object will contain an array of <a href="#step-object">steps</a> or <a href="#reagent-object">materials</a> accordingly.
 </aside>
 
 ## Step object
