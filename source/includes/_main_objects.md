@@ -2,7 +2,7 @@
 
 ## User object
 
-> Example Object
+> Example Object: User
 
 ```json
 {
@@ -67,7 +67,7 @@
 
 ## Image object
 
-> Example Object
+> Example Object: Image
 
 ```json
 {
@@ -99,7 +99,7 @@
 
 ## Reagent object
 
-> Example Object
+> Example Object: Reagent
 
 ```json
 {
@@ -190,7 +190,7 @@
 
 ## Comment object
 
-> Example Object
+> Example Object: Comment
 
 ```json
 {

@@ -2,7 +2,7 @@
 
 ## Small Protocol object
 
-> Example Object
+> Example Object: Small Protocol
 
 ```json
 {
@@ -87,7 +87,7 @@
 
 ## Protocol object
 
-> Example Object
+> Example Object: Protocol
 
 ```json
 {
@@ -299,7 +299,7 @@ If you request a protocol with steps or materials, the protocol object will cont
 
 ## Step object
 
-> Example Object
+> Example Object: Step
 
 ```json
 {
@@ -371,7 +371,7 @@ If you request a protocol with steps or materials, the protocol object will cont
 
 ## Step Component object
 
-> Example Object
+> Example Object: Step Component
 
 ```json
 {
@@ -447,7 +447,7 @@ If you request a protocol with steps or materials, the protocol object will cont
 
 Description of the step, can contain html tags.
 
-> Example Object
+> Example Object: Description, type id 1
 
 ```json
 {
@@ -471,7 +471,7 @@ Description of the step, can contain html tags.
 
 A quantity of something, typically the total of a reagent, size, value etc.
 
-> Example Object
+> Example Object: Amount, type id 3
 
 ```json
 {
@@ -513,7 +513,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
 
 ### Duration, type id 4
 
-> Example Object
+> Example Object: Duration, type id 4
 
 ```json
 {
@@ -545,7 +545,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
 
 ### Title, type id 6
 
-> Example Object
+> Example Object: Title, type id 6
 
 ```json
 {
@@ -567,7 +567,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
 
 ### Link, type id 7
 
-> Example Object
+> Example Object: Link, type id 7
 
 ```json
 {
@@ -589,7 +589,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
 
 ### Software package, type id 8
 
-> Example Object
+> Example Object: Software package, type id 8
 
 ```json
 {
@@ -661,7 +661,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
 
 ### Dataset package, type id 9
 
-> Example Object
+> Example Object: Dataset package, type id 9
 
 ```json
 {
@@ -696,7 +696,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
 Step comments. This object is a [`comment`](#comment-object).
 
 
-> Example Object
+> Example Object: Comment, type id 13
 
 ```json
 {
@@ -798,7 +798,7 @@ Step comments. This object is a [`comment`](#comment-object).
 
 ### Command package, type id 15
 
-> Example Object
+> Example Object: Command package, type id 15
 
 ```json
 {
@@ -850,7 +850,7 @@ Step comments. This object is a [`comment`](#comment-object).
 
 ### Expected result, type id 17
 
-> Example Object
+> Example Object: Expected result, type id 17
 
 ```json
 {
@@ -874,7 +874,7 @@ Step comments. This object is a [`comment`](#comment-object).
 
 Step can contain protocols as components. This object is a [`protocol`](#protocol-object). 
 
-> Example Object
+> Example Object: Protocol, type id 18
 
 ```json
 {
@@ -1081,7 +1081,7 @@ Step can contain protocols as components. This object is a [`protocol`](#protoco
 
 ### Safety information, type id 19
 
-> Example Object
+> Example Object: Safety information, type id 19
 
 ```json
 {
@@ -1114,7 +1114,7 @@ Step can contain protocols as components. This object is a [`protocol`](#protoco
 ### Reagent, type id 20
 This object is a [`Reagent`](#reagent-object).
 
-> Example Object
+> Example Object: Reagent, type id 20
 
 ```json
 {
@@ -1204,7 +1204,7 @@ This object is a [`Reagent`](#reagent-object).
 
 ### Step cases, type id 21
 
-> Example Object
+> Example Object: Step cases, type id 21
 
 ```json
 {
@@ -1282,7 +1282,7 @@ This object is a [`Reagent`](#reagent-object).
 
 ### Go to previous step, type id 22
 
-> Example Object
+> Example Object: Go to previous step, type id 22
 
 ```json
 {
@@ -1314,7 +1314,7 @@ This object is a [`Reagent`](#reagent-object).
 
 ### Temperature, type id 24
 
-> Example Object
+> Example Object: Temperature, type id 24
 
 ```json
 {
@@ -1356,7 +1356,7 @@ This object is a [`Reagent`](#reagent-object).
 
 ### Concentration, type id 25
 
-> Example Object
+> Example Object: Concentration, type id 25
 
 ```json
 {
@@ -1400,7 +1400,7 @@ This object is a [`Reagent`](#reagent-object).
 
 Author notes. This object is a [`Comment`](#comment-object).
 
-> Example Object
+> Example Object: Note, type id 26
 
 ```json
 {
