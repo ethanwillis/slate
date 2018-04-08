@@ -873,16 +873,209 @@ Step comments. This object is a [`comment`](#comment-object).
 
 ### Protocol, type id 18
 
-Step can contain protocols as components.
+Step can contain protocols as components. This object is a [`protocol`](#protocol-object). 
+
+> Example Object
+
+```json
+{
+  "id": 872,
+  "title": "Lysis Buffer (20 mL)",
+  "image": {
+    "source": "https://www.protocols.io/img/default_protocol.png",
+    "placeholder": "https://www.protocols.io/img/default_protocol.png"
+  },
+  "doi": "dx.doi.org/10.17504/protocols.io.c4gytv",
+  "uri": "lysis-buffer-20-ml-c4gytv",
+  "published_on": 1487372466,
+  "created_on": 1434670606,
+  "creator": {
+    "name": "Celina Gomez",
+    "affiliation": null,
+    "username": "celina-gomez",
+    "link": "",
+    "image": {
+      "source": null,
+      "placeholder": null
+    }
+  },
+  "public": 1,
+  "versions": [
+    {
+      "id": 10091,
+      "title": "untitled protocol",
+      "image": {
+        "source": "https://www.protocols.io/img/default_protocol.png",
+        "placeholder": "https://www.protocols.io/img/default_protocol.png"
+      },
+      "version_id": 1,
+      "doi": null,
+      "uri": "untitled-protocol-m4jc8un",
+      "published_on": 0
+    }
+  ],
+  "version_id": 0,
+  "link": "",
+  "number_of_steps": 3,
+  "authors": [
+    {
+      "name": "Matt Sullivan Lab",
+      "affiliation": "Matt Sullivan Lab",
+      "username": null,
+      "link": null,
+      "image": {
+        "source": null,
+        "placeholder": null
+      }
+    }
+  ],
+  "steps": [...],
+  "materials": [...]
+}
+```
 
 <params>
   <item>
     <parameter>
-      source object
-      <gray>[`protocol`](#protocol-object)</gray>
+      id
+      <gray>int</gray>
     </parameter>
     <desc>
-      source object represents usual protocol object.
+      unique protocol integer identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      title
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      protocol title.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      image
+      <gray>[`image`](#image-object)</gray>
+    </parameter>
+    <desc>
+      protocol image.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      doi
+      <gray>string, can be empty</gray>
+    </parameter>
+    <desc>
+      DOI of this protocol.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      uri
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      unique protocol text identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      published_on
+      <gray>int, can be `null`</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time when this protocol was published.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      created_on
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time of protocol creation.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      creator
+      <gray>[`user`](#user-object)</gray>
+    </parameter>
+    <desc>
+      protocol creator
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      public
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      `1` or `0`. `1` means that this protocol is public and `0` otherwise.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      versions
+      <gray>array</gray>
+    </parameter>
+    <desc>
+      list of [`versions`](#small-protocol-object)
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      version_id
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      `0...n`. Version number of this protocol.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      link
+      <gray>string</gray>
+    </parameter>
+    <desc>
+       Link to protocol
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      number_of_steps
+      <gray>int, can be `null`</gray>
+    </parameter>
+    <desc>
+      number of steps of this protocol.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      authors
+      <gray>array</gray>
+    </parameter>
+    <desc>
+      list of [`user`](#user-object) or empty array
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      steps
+      <gray>array</gray>
+    </parameter>
+    <desc>
+      list of [`step`](#step-object) or empty array
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      materials
+    </parameter>
+    <desc>
+      list of [`reagent`](#reagent-object) or empty array
     </desc>
   </item>
 </params>
