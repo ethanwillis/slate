@@ -572,7 +572,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
 
 ```json
 {
-  "link": "boil"
+  "link": "https://www.protocols.io"
 }
 ```
 
