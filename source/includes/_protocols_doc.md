@@ -835,7 +835,7 @@ Step comments. This object is a [`comment`](#comment-object).
       <gray>string</gray>
     </parameter>
     <desc>
-      name of operation system.
+      name of operating system.
     </desc>
   </item>
   <item>
@@ -844,7 +844,7 @@ Step comments. This object is a [`comment`](#comment-object).
       <gray>string</gray>
     </parameter>
     <desc>
-      version of operation system.
+      version of operating system.
     </desc>
   </item>
 </params>
