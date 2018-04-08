@@ -250,6 +250,15 @@
   </item>
   <item>
     <parameter>
+      link
+      <gray>string</gray>
+    </parameter>
+    <desc>
+       Link to protocol
+    </desc>
+  </item>
+  <item>
+    <parameter>
       number_of_steps
       <gray>int, can be `null`</gray>
     </parameter>
