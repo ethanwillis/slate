@@ -1261,7 +1261,7 @@ This object is a [`Reagent`](#reagent-object).
       <item>
         <parameter>
           step_id
-          <gray>ing</gray>
+          <gray>int</gray>
         </parameter>
         <desc>
           linked step id.
