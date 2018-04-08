@@ -32,7 +32,7 @@
   <item>
     <parameter>
       title
-      <gray>int</gray>
+      <gray>string</gray>
     </parameter>
     <desc>
       protocol title.
