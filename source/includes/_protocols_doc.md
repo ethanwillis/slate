@@ -873,7 +873,7 @@ Step comments. This object is a [`comment`](#comment-object).
 
 ### Protocol, type id 18
 
-Step can contatin protocols as components.
+Step can contain protocols as components.
 
 <params>
   <item>
