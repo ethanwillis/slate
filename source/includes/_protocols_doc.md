@@ -420,7 +420,7 @@ If you request a protocol with steps or materials, the protocol object will cont
       <gray>int</gray>
     </parameter>
     <desc>
-      type of of component, one of [`step component types`](##step-component-types)
+      type of of component, one of [`step component types`](#step-component-types)
     </desc>
   </item>
   <item>
