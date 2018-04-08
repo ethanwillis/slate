@@ -1287,7 +1287,7 @@ This object is a [`Reagent`](#reagent-object).
 ```json
 {
   "title": "Reason for repeating the step",
-  "step_guid": E70FDFE632504ADFB0ED519ABB5449B1
+  "step_guid": "E70FDFE632504ADFB0ED519ABB5449B1"
 }
 ```
 
