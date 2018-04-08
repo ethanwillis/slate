@@ -646,7 +646,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
       <gray>string</gray>
     </parameter>
     <desc>
-      name of operation system.
+      name of operating system.
     </desc>
   </item>
   <item>
@@ -655,7 +655,7 @@ A quantity of something, typically the total of a reagent, size, value etc.
       <gray>string</gray>
     </parameter>
     <desc>
-      version of operation system.
+      version of operating system.
     </desc>
   </item>
 </params>
