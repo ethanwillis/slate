@@ -146,7 +146,6 @@
 }
 ```
 
-### Protocol object
 
 <params>
   <item>
