@@ -1210,13 +1210,13 @@ This object is a [`Reagent`](#reagent-object).
 {
   "cases": [
     {
-      "title": "Measurment A",
+      "title": "Measurement A",
       "label": "Case 1",
       "step_id": 595210,
       "step_guid": "1167CDCBFDB64CD4BA50A5016F4474B6"
     },
     {
-      "title": "MEasurment B",
+      "title": "Measurement B",
       "label": "Case 2",
       "step_id": 595211,
       "step_guid": "DE9EA0FAF6E149528A4DAEFCA2DCC927"
