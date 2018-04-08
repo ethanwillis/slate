@@ -275,6 +275,23 @@
       list of [`user`](#user-object) or empty array
     </desc>
   </item>
+  <item>
+    <parameter>
+      steps
+      <gray>array</gray>
+    </parameter>
+    <desc>
+      list of [`step`](#step-object) or empty array
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      materials
+    </parameter>
+    <desc>
+      list of [`reagent`](#reagent-object) or empty array
+    </desc>
+  </item>
 </params>
 
 <aside class="notice">
