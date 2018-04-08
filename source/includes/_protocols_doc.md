@@ -435,10 +435,10 @@ If you request a protocol with steps or materials, the protocol object will cont
   <item>
     <parameter>
       source
-      <gray>[`step component`](##step-component-types)</gray>
+      <gray>[`step component type`](#step-component-types)</gray>
     </parameter>
     <desc>
-      variative object of component, can be determine by `type_id`
+      Object that has varying properties depending on the step component type used. The step component type for this obejct can be determined by `type_id`
     </desc>
   </item>
 </params>
