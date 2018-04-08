@@ -71,10 +71,8 @@
 
 ```json
 {
-	"image": {
-		"source": "https://www.protocols.io/img/default_protocol.png",
-		"placeholder": "https://www.protocols.io/img/default_protocol.png"
-	}
+    "source": "https://www.protocols.io/img/default_protocol.png",
+    "placeholder": "https://www.protocols.io/img/default_protocol.png"
 }
 ```
 
