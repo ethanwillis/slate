@@ -104,7 +104,7 @@
 ```json
 {
   "id": 19751,
-  "mol_weight": 0,
+  "mol_weight": 0.1,
   "name": "2 mg Gastrin I, human",
   "linfor": "C130H204N38O31S",
   "url": "https://www.biorbyt.com/gastrin-i-human-orb321073",
