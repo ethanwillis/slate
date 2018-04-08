@@ -138,7 +138,7 @@
       <gray>float</gray>
     </parameter>
     <desc>
-      molarity weigh.
+      molarity weight.
     </desc>
   </item>
   <item>
@@ -156,7 +156,7 @@
       <gray>string</gray>
     </parameter>
     <desc>
-      linar formual.
+      linear formula.
     </desc>
   </item>
   <item>
