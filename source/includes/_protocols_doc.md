@@ -694,7 +694,8 @@ A quantity of something, typically the total of a reagent, size, value etc.
 
 ### Comment, type id 13
 
-Step comments.
+Step comments. This object is a [`comment`](#comment-object).
+
 
 > Example Object
 
@@ -724,11 +725,74 @@ Step comments.
 <params>
   <item>
     <parameter>
-      source object
+      id
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unique comment integer identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      parent_id
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      id of parent comment.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      title
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      title of comment.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      body
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      body of comment.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      created_on
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time of comment creation.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      changed_on
+      <gray>int</gray>
+    </parameter>
+    <desc>
+      unix timestamp. date/time when comment was modified last time.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      creator
+      <gray>[`user`](#user-object)</gray>
+    </parameter>
+    <desc>
+      comment creator.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      comments
       <gray>[`comment`](#comment-object)</gray>
     </parameter>
     <desc>
-      source object represents usual comment object.
+      comment replies.
     </desc>
   </item>
 </params>
