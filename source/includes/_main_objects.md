@@ -92,7 +92,7 @@
       <gray>string</gray>
     </parameter>
     <desc>
-      link to the image placeholder or original image link of placeholder is not exist
+      link to the image placeholder or original image link if a placeholder image does not exist
     </desc>
   </item>
 </params>
