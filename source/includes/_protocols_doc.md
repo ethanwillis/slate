@@ -1112,6 +1112,7 @@ Step can contain protocols as components. This object is a [`protocol`](#protoco
 </params>
 
 ### Reagent, type id 20
+This object is a [`Reagent`](#reagent-object).
 
 > Example Object
 
@@ -1135,15 +1136,68 @@ Step can contain protocols as components. This object is a [`protocol`](#protoco
   }
 }
 ```
-
 <params>
   <item>
     <parameter>
-      source object
-      <gray>[`reagent`](#reagent-object)</gray>
+      id
+      <gray>int</gray>
     </parameter>
     <desc>
-      source object represents usual reagent object.
+      unique reagent integer identifier.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      mol_weight
+      <gray>float</gray>
+    </parameter>
+    <desc>
+      molarity weight.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      name
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      name of reagent.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      linfor
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      linear formula.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      url
+      <gray>string, can be `null`</gray>
+    </parameter>
+    <desc>
+      external url.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      sku
+      <gray>string</gray>
+    </parameter>
+    <desc>
+      reagent sku.
+    </desc>
+  </item>
+  <item>
+    <parameter>
+      vendor
+      <gray>[`user`](#user-object)</gray>
+    </parameter>
+    <desc>
+      reagent vendor.
     </desc>
   </item>
 </params>
